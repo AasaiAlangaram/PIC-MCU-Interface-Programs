@@ -1,0 +1,239 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.80 build 6738 
+                                                                                               Sun Dec 20 23:28:32 2015
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 6738
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 6738"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           	FNROOT	_main
+    43                           	global	_PORTB
+    44                           psect	maintext,global,class=CODE,delta=2
+    45                           global __pmaintext
+    46  07F5                     __pmaintext:
+    47  0006                     _PORTB	set	6
+    48                           	global	_TRISB
+    49  0086                     _TRISB	set	134
+    50                           	file	"led.as"
+    51                           	line	#
+    52                           psect cinit,class=CODE,delta=2
+    53                           global start_initialization
+    54  07F1                     start_initialization:
+    55                           
+    56                           psect cinit,class=CODE,delta=2
+    57                           global end_of_initialization
+    58                           
+    59                           ;End of C runtime variable initialization code
+    60                           
+    61  07F1                     end_of_initialization:
+    62  07F1  0183               clrf status
+    63  07F2  120A  118A  2FF5   ljmp _main	;jump to C main() function
+    64                           psect	cstackCOMMON,class=COMMON,space=1
+    65                           global __pcstackCOMMON
+    66  0000                     __pcstackCOMMON:
+    67                           	global	?_main
+    68  0000                     ?_main:	; 0 bytes @ 0x0
+    69                           	global	??_main
+    70  0000                     ??_main:	; 0 bytes @ 0x0
+    71 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+    72 ;;Auto spaces:   Size  Autos    Used
+    73 ;; COMMON          14      0       0
+    74 ;; BANK0           80      0       0
+    75 ;; BANK1           80      0       0
+    76 ;; BANK3           96      0       0
+    77 ;; BANK2           96      0       0
+    78                           
+    79 ;;
+    80 ;; Pointer list with targets:
+    81                           
+    82                           
+    83                           
+    84 ;;
+    85 ;; Critical Paths under _main in COMMON
+    86 ;;
+    87 ;;   None.
+    88 ;;
+    89 ;; Critical Paths under _main in BANK0
+    90 ;;
+    91 ;;   None.
+    92 ;;
+    93 ;; Critical Paths under _main in BANK1
+    94 ;;
+    95 ;;   None.
+    96 ;;
+    97 ;; Critical Paths under _main in BANK3
+    98 ;;
+    99 ;;   None.
+   100 ;;
+   101 ;; Critical Paths under _main in BANK2
+   102 ;;
+   103 ;;   None.
+   104                           
+   105 ;;
+   106 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   107 ;;
+   108                           
+   109 ;;
+   110 ;;Call Graph Tables:
+   111 ;;
+   112 ;; ---------------------------------------------------------------------------------
+   113 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   114 ;; ---------------------------------------------------------------------------------
+   115 ;; (0) _main                                                 0     0      0       0
+   116 ;; ---------------------------------------------------------------------------------
+   117 ;; Estimated maximum stack depth 0
+   118 ;; ---------------------------------------------------------------------------------
+   119                           
+   120 ;; Call Graph Graphs:
+   121                           
+   122 ;; _main (ROOT)
+   123 ;;
+   124                           
+   125 ;; Address spaces:
+   126                           
+   127 ;;Name               Size   Autos  Total    Cost      Usage
+   128 ;;BITCOMMON            E      0       0       0        0.0%
+   129 ;;EEDATA             100      0       0       0        0.0%
+   130 ;;NULL                 0      0       0       0        0.0%
+   131 ;;CODE                 0      0       0       0        0.0%
+   132 ;;COMMON               E      0       0       1        0.0%
+   133 ;;BITSFR0              0      0       0       1        0.0%
+   134 ;;SFR0                 0      0       0       1        0.0%
+   135 ;;BITSFR1              0      0       0       2        0.0%
+   136 ;;SFR1                 0      0       0       2        0.0%
+   137 ;;STACK                0      0       0       2        0.0%
+   138 ;;ABS                  0      0       0       3        0.0%
+   139 ;;BITBANK0            50      0       0       4        0.0%
+   140 ;;BITSFR3              0      0       0       4        0.0%
+   141 ;;SFR3                 0      0       0       4        0.0%
+   142 ;;BANK0               50      0       0       5        0.0%
+   143 ;;BITSFR2              0      0       0       5        0.0%
+   144 ;;SFR2                 0      0       0       5        0.0%
+   145 ;;BITBANK1            50      0       0       6        0.0%
+   146 ;;BANK1               50      0       0       7        0.0%
+   147 ;;BITBANK3            60      0       0       8        0.0%
+   148 ;;BANK3               60      0       0       9        0.0%
+   149 ;;BITBANK2            60      0       0      10        0.0%
+   150 ;;BANK2               60      0       0      11        0.0%
+   151 ;;DATA                 0      0       0      12        0.0%
+   152                           
+   153                           	global	_main
+   154                           psect	maintext
+   155                           
+   156 ;; *************** function _main *****************
+   157 ;; Defined at:
+   158 ;;		line 3 in file "C:\Users\blackrider\Desktop\PIC course\led\led.c"
+   159 ;; Parameters:    Size  Location     Type
+   160 ;;		None
+   161 ;; Auto vars:     Size  Location     Type
+   162 ;;		None
+   163 ;; Return value:  Size  Location     Type
+   164 ;;		None               void
+   165 ;; Registers used:
+   166 ;;		wreg
+   167 ;; Tracked objects:
+   168 ;;		On entry : 17F/0
+   169 ;;		On exit  : 0/0
+   170 ;;		Unchanged: 0/0
+   171 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   172 ;;      Params:         0       0       0       0       0
+   173 ;;      Locals:         0       0       0       0       0
+   174 ;;      Temps:          0       0       0       0       0
+   175 ;;      Totals:         0       0       0       0       0
+   176 ;;Total ram usage:        0 bytes
+   177 ;; This function calls:
+   178 ;;		Nothing
+   179 ;; This function is called by:
+   180 ;;		Startup code after reset
+   181 ;; This function uses a non-reentrant model
+   182 ;;
+   183                           psect	maintext
+   184                           	file	"C:\Users\blackrider\Desktop\PIC course\led\led.c"
+   185                           	line	3
+   186                           	global	__size_of_main
+   187  000B                     	__size_of_main	equ	__end_of_main-_main
+   188                           	
+   189  07F5                     _main:	
+   190                           	opt	stack 8
+   191                           ; Regs used in _main: [wreg]
+   192                           	line	4
+   193                           	
+   194  07F5                     l928:	
+   195                           ;led.c: 4: TRISB=0x53;
+   196  07F5  3053               	movlw	(053h)
+   197  07F6  1683               	bsf	status, 5	;RP0=1, select bank1
+   198  07F7  1303               	bcf	status, 6	;RP1=0, select bank1
+   199  07F8  0086               	movwf	(134)^080h	;volatile
+   200                           	line	5
+   201                           ;led.c: 5: PORTB=0xAC;
+   202  07F9  30AC               	movlw	(0ACh)
+   203  07FA  1283               	bcf	status, 5	;RP0=0, select bank0
+   204  07FB  1303               	bcf	status, 6	;RP1=0, select bank0
+   205  07FC  0086               	movwf	(6)	;volatile
+   206                           	line	6
+   207                           	
+   208  07FD                     l559:	
+   209                           	global	start
+   210  07FD  120A  118A  2800   	ljmp	start
+   211                           	opt stack 0
+   212                           GLOBAL	__end_of_main
+   213  0800                     	__end_of_main:
+   214 ;; =============== function _main ends ============
+   215                           
+   216                           	signat	_main,88
+   217                           psect	maintext
+   218                           	global	btemp
+   219  007E                     	btemp set 07Eh
+   220                           
+   221                           	DABS	1,126,2	;btemp
+   222                           	global	wtemp0
+   223  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.80 build 6738 
+Symbol Table                                                                                   Sun Dec 20 23:28:32 2015
+
+                 l559 07FD                   l928 07F5                  _main 07F5                  btemp 007E  
+                start 0000                 ?_main 0000                 _PORTB 0006                 _TRISB 0086  
+               status 0003                 wtemp0 007E          __end_of_main 0800                ??_main 0000  
+      __pcstackCOMMON 0000            __pmaintext 07F5  end_of_initialization 07F1   start_initialization 07F1  
+       __size_of_main 000B  

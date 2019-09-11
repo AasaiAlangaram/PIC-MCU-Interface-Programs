@@ -1,0 +1,185 @@
+[Header]
+MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
+Version=1.0
+[File000]
+Location=C:\Users\blackrider\Desktop\PIC course\Multiplex 7seg\multiplex 7seg.p1
+Folder=Intermediary
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.80\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|multiplex 7seg.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString= C9=1
+TraceCmdString=
+DebugOptions=
+[File001]
+Location=C:\Users\blackrider\Desktop\PIC course\Multiplex 7seg\multiplexing 7seg.cof
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.80\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|multiplex 7seg.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString= C9=1
+TraceCmdString=
+DebugOptions=
+[File002]
+Location=C:\Users\blackrider\Desktop\PIC course\Multiplex 7seg\multiplexing 7seg.hex
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.80\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|multiplex 7seg.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString= C9=1
+TraceCmdString=
+DebugOptions=
+[File003]
+Location=C:\Users\blackrider\Desktop\PIC course\Multiplex 7seg\multiplexing 7seg.sym
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.80\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|multiplex 7seg.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString= C9=1
+TraceCmdString=
+DebugOptions=
+[File004]
+Location=C:\Users\blackrider\Desktop\PIC course\Multiplex 7seg\multiplexing 7seg.map
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.80\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|multiplex 7seg.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString= C9=1
+TraceCmdString=
+DebugOptions=
+[File005]
+Location=C:\Users\blackrider\Desktop\PIC course\Multiplex 7seg\multiplexing 7seg.hxl
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.80\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|multiplex 7seg.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString= C9=1
+TraceCmdString=
+DebugOptions=
+[File006]
+Location=C:\Users\blackrider\Desktop\PIC course\Multiplex 7seg\startup.lst
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.80\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|multiplex 7seg.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString= C9=1
+TraceCmdString=
+DebugOptions=
+[File007]
+Location=C:\Users\blackrider\Desktop\PIC course\Multiplex 7seg\startup.rlf
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.80\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|multiplex 7seg.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString= C9=1
+TraceCmdString=
+DebugOptions=
+[File008]
+Location=C:\Users\blackrider\Desktop\PIC course\Multiplex 7seg\doprnt.p1
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.80\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|multiplex 7seg.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString= C9=1
+TraceCmdString=
+DebugOptions=
+[File009]
+Location=C:\Users\blackrider\Desktop\PIC course\Multiplex 7seg\doprnt.pre
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.80\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|multiplex 7seg.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString= C9=1
+TraceCmdString=
+DebugOptions=
+[File010]
+Location=C:\Users\blackrider\Desktop\PIC course\Multiplex 7seg\multiplexing 7seg.obj
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.80\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|multiplex 7seg.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString= C9=1
+TraceCmdString=
+DebugOptions=
+[File011]
+Location=C:\Users\blackrider\Desktop\PIC course\Multiplex 7seg\multiplexing 7seg.lst
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.80\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|multiplex 7seg.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString= C9=1
+TraceCmdString=
+DebugOptions=
+[File012]
+Location=C:\Users\blackrider\Desktop\PIC course\Multiplex 7seg\multiplexing 7seg.rlf
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.80\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|multiplex 7seg.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString= C9=1
+TraceCmdString=
+DebugOptions=
+[File013]
+Location=C:\Users\blackrider\Desktop\PIC course\Multiplex 7seg\multiplexing 7seg.sdb
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.80\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|multiplex 7seg.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString= C9=1
+TraceCmdString=
+DebugOptions=

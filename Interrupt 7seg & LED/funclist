@@ -1,0 +1,5 @@
+_delay: CODE, 140 0 20
+_main: CODE, 21 0 80
+_ext: CODE, 101 0 39
+i1_delay: CODE, 160 0 20
+Total: 159

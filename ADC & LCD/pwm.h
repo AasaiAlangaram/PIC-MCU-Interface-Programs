@@ -1,0 +1,37 @@
+void PWM_1()
+{	
+
+	PR2=10;
+	CCPR1L=(PR2*0.25);
+	T2CON=0X7B;
+	TMR2=0;
+	TMR2ON=1;
+	while(TMR1IF==0);
+	TMR2IF=0;
+	TMR2ON=0;
+
+}
+void PWM_2()
+{	
+	PR2=10;
+	CCPR1L=(PR2*0.50);
+	T2CON=0X7B;
+	TMR2=0;
+	TMR2ON=1;
+	while(TMR1IF==0);
+	TMR2IF=0;
+	TMR2ON=0;
+
+}
+void PWM_3()
+{	
+	PR2=10;
+	CCPR1L=(PR2*0.90);
+	T2CON=0X7B;
+	TMR2=0;
+	TMR2ON=1;
+	while(TMR1IF==0);
+	TMR2IF=0;
+	TMR2ON=0;
+
+}

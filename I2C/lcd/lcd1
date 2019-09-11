@@ -1,0 +1,45 @@
+#include<pic.h>
+#define rs RE0
+#define rs RE1	
+#define rs RE2
+	vois delay(unsigned int y)
+	{
+		while (y--);
+	}
+void lcd command(unsigned char com)
+{
+	PORTD=com;
+	rs=0;
+	rw=0;
+	en=1;
+	delay(200);
+	en=0;
+}
+void lcd command(unsigned char data)
+{
+	PORTD=data;
+	rs=1;
+	rw=0;
+	en=1;
+	delay(200);
+	en=0;
+}
+void lcdinti()
+{
+	lcd command(0x38);
+	lcd command(0x06);
+	lcd command(0x0c);
+	lcd command(0x01);
+void main()
+{
+	TRISE=0x00;
+	TRISD=0x00;
+	PORTE=PORTD=0x00;
+	lcdinti();
+	while(1)
+	{
+	lcd command(0x80);
+	lcd data('a');
+	}
+	}
+

@@ -1,0 +1,936 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.71 build 6379 
+                                                                                               Tue Sep 05 16:17:40 2017
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 6379
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 6379"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           	FNCALL	_main,_forward
+    43                           	FNCALL	_main,_delay
+    44                           	FNCALL	_main,_reverse
+    45                           	FNCALL	_reverse,_delay
+    46                           	FNCALL	_forward,_delay
+    47                           	FNROOT	_main
+    48                           	global	_a
+    49                           psect	idataBANK0,class=CODE,space=0,delta=2
+    50                           global __pidataBANK0
+    51  06D3                     __pidataBANK0:
+    52                           	file	"D:\TI\PIC course\led chasing seq\led  seq.c"
+    53                           	line	6
+    54                           
+    55                           ;initializer for _a
+    56  06D3  3401               	retlw	01h
+    57  06D4  3402               	retlw	02h
+    58  06D5  3404               	retlw	04h
+    59  06D6  3408               	retlw	08h
+    60  06D7  3410               	retlw	010h
+    61  06D8  3420               	retlw	020h
+    62  06D9  3440               	retlw	040h
+    63  06DA  3480               	retlw	080h
+    64                           	global	_PORTD
+    65  0008                     _PORTD	set	8
+    66                           	global	_TRISD
+    67  0088                     _TRISD	set	136
+    68                           	file	"led seq.as"
+    69                           	line	#
+    70                           psect cinit,class=CODE,delta=2
+    71                           global start_initialization
+    72  06FE                     start_initialization:
+    73                           
+    74                           psect	dataBANK0,class=BANK0,space=1
+    75                           global __pdataBANK0
+    76  0020                     __pdataBANK0:
+    77                           	file	"D:\TI\PIC course\led chasing seq\led  seq.c"
+    78  0020                     _a:
+    79  0020                            ds      8
+    80                           
+    81                           global btemp
+    82                           psect inittext,class=CODE,delta=2
+    83                           global init_fetch,btemp
+    84                           ;	Called with low address in FSR and high address in W
+    85  06DB                     init_fetch:
+    86  06DB  087E               	movf btemp,w
+    87  06DC  008A               	movwf pclath
+    88  06DD  087F               	movf btemp+1,w
+    89  06DE  0082               	movwf pc
+    90                           global init_ram
+    91                           ;Called with:
+    92                           ;	high address of idata address in btemp 
+    93                           ;	low address of idata address in btemp+1 
+    94                           ;	low address of data in FSR
+    95                           ;	high address + 1 of data in btemp-1
+    96  06DF                     init_ram:
+    97  06DF  26DB  120A  118A   	fcall init_fetch
+    98  06E2  0080               	movwf indf,f
+    99  06E3  0A84               	incf fsr,f
+   100  06E4  0804               	movf fsr,w
+   101  06E5  067D               	xorwf btemp-1,w
+   102  06E6  1903               	btfsc status,2
+   103  06E7  3400               	retlw 0
+   104  06E8  0AFF               	incf btemp+1,f
+   105  06E9  1903               	btfsc status,2
+   106  06EA  0AFE               	incf btemp,f
+   107  06EB  2EDF               	goto init_ram
+   108                           ; Initialize objects allocated to BANK0
+   109                           psect cinit,class=CODE,delta=2
+   110                           global init_ram, __pidataBANK0
+   111  06FE  1383               	bcf	status, 7	;select IRP bank0
+   112  06FF  3028               	movlw low(__pdataBANK0+8)
+   113  0700  00FD               	movwf btemp-1,f
+   114  0701  3006               	movlw high(__pidataBANK0)
+   115  0702  00FE               	movwf btemp,f
+   116  0703  30D3               	movlw low(__pidataBANK0)
+   117  0704  00FF               	movwf btemp+1,f
+   118  0705  3020               	movlw low(__pdataBANK0)
+   119  0706  0084               	movwf fsr,f
+   120  0707  120A  118A  26DF   	fcall init_ram
+              120A  118A         
+   121                           psect cinit,class=CODE,delta=2
+   122                           global end_of_initialization
+   123                           
+   124                           ;End of C runtime variable initationation code
+   125                           
+   126  070C                     end_of_initialization:
+   127  070C  0183               clrf status
+   128  070D  120A  118A  2F95   ljmp _main	;jump to C main() function
+   129                           psect	cstackCOMMON,class=COMMON,space=1
+   130                           global __pcstackCOMMON
+   131  0070                     __pcstackCOMMON:
+   132                           	global	?_main
+   133  0070                     ?_main:	; 0 bytes @ 0x0
+   134                           	global	?_reverse
+   135  0070                     ?_reverse:	; 0 bytes @ 0x0
+   136                           	global	?_forward
+   137  0070                     ?_forward:	; 0 bytes @ 0x0
+   138                           	global	?_delay
+   139  0070                     ?_delay:	; 0 bytes @ 0x0
+   140                           	global	delay@a
+   141  0070                     delay@a:	; 2 bytes @ 0x0
+   142  0070                     	ds	2
+   143                           	global	??_delay
+   144  0072                     ??_delay:	; 0 bytes @ 0x2
+   145                           	global	??_forward
+   146  0072                     ??_forward:	; 0 bytes @ 0x2
+   147                           	global	??_reverse
+   148  0072                     ??_reverse:	; 0 bytes @ 0x2
+   149  0072                     	ds	1
+   150                           	global	reverse@i
+   151  0073                     reverse@i:	; 2 bytes @ 0x3
+   152                           	global	forward@i
+   153  0073                     forward@i:	; 2 bytes @ 0x3
+   154  0073                     	ds	2
+   155                           	global	??_main
+   156  0075                     ??_main:	; 0 bytes @ 0x5
+   157                           	global	main@i_308
+   158  0075                     main@i_308:	; 2 bytes @ 0x5
+   159  0075                     	ds	2
+   160                           	global	main@i
+   161  0077                     main@i:	; 2 bytes @ 0x7
+   162  0077                     	ds	2
+   163 ;;Data sizes: Strings 0, constant 0, data 8, bss 0, persistent 0 stack 0
+   164 ;;Auto spaces:   Size  Autos    Used
+   165 ;; COMMON          14      9       9
+   166 ;; BANK0           80      0       8
+   167 ;; BANK1           80      0       0
+   168 ;; BANK3           96      0       0
+   169 ;; BANK2           96      0       0
+   170                           
+   171 ;;
+   172 ;; Pointer list with targets:
+   173                           
+   174                           
+   175                           
+   176 ;; COMMON:	_main->_forward
+   177 ;; COMMON:	_main->_reverse
+   178 ;; Critical Paths (_reverse)
+   179 ;; COMMON:	_reverse->_delay
+   180                           
+   181 ;; Critical Paths (_forward)
+   182 ;; COMMON:	_forward->_delay
+   183                           
+   184 ;;
+   185 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   186                           
+   187 ;;
+   188 ;;Call Graph Tables:
+   189                           
+   190 ;; ---------------------------------------------------------------------------------
+   191 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   192 ;; ---------------------------------------------------------------------------------
+   193 ;; (1) _main                                                 4     4      0     165
+   194 ;;                                              5 COMMON     4     4      0
+   195 ;;                            _forward
+   196 ;;                              _delay
+   197 ;;                            _reverse
+   198 ;; ---------------------------------------------------------------------------------
+   199 ;; (0) _reverse                                              3     3      0      45
+   200 ;;                                              2 COMMON     3     3      0
+   201 ;;                              _delay
+   202 ;; ---------------------------------------------------------------------------------
+   203 ;; (0) _forward                                              3     3      0      45
+   204 ;;                                              2 COMMON     3     3      0
+   205 ;;                              _delay
+   206 ;; ---------------------------------------------------------------------------------
+   207 ;; (4294967295) _delay                                       2     0      2      15
+   208 ;;                                              0 COMMON     2     0      2
+   209 ;; ---------------------------------------------------------------------------------
+   210 ;; Estimated maximum call depth -1
+   211 ;; ---------------------------------------------------------------------------------
+   212                           
+   213 ;; Call Graph Graphs:
+   214                           
+   215 ;; _reverse (ROOT)
+   216 ;;   _delay
+   217 ;;
+   218 ;; _forward (ROOT)
+   219 ;;   _delay
+   220 ;;
+   221                           
+   222 ;; Address spaces:
+   223                           
+   224 ;;Name               Size   Autos  Total    Cost      Usage
+   225 ;;BANK3               60      0       0       8        0.0%
+   226 ;;SFR3                 0      0       0       4        0.0%
+   227 ;;BITSFR3              0      0       0       4        0.0%
+   228 ;;BITBANK3            60      0       0      11        0.0%
+   229 ;;BITSFR2              0      0       0       5        0.0%
+   230 ;;SFR2                 0      0       0       5        0.0%
+   231 ;;BITBANK2            60      0       0      12        0.0%
+   232 ;;BANK2               60      0       0       9        0.0%
+   233 ;;SFR1                 0      0       0       2        0.0%
+   234 ;;BITBANK1            50      0       0       6        0.0%
+   235 ;;BANK1               50      0       0       7        0.0%
+   236 ;;BITSFR1              0      0       0       2        0.0%
+   237 ;;ABS                  0      0      11      10        0.0%
+   238 ;;DATA                 0      0      13       5        0.0%
+   239 ;;SFR0                 0      0       0       1        0.0%
+   240 ;;NULL                 0      0       0       0        0.0%
+   241 ;;CODE                 0      0       0       0        0.0%
+   242 ;;BITSFR0              0      0       0       1        0.0%
+   243 ;;BITBANK0            50      0       0       3        0.0%
+   244 ;;BANK0               50      0       8       4       10.0%
+   245 ;;STACK                0      0       2       2        0.0%
+   246 ;;BITCOMMON            E      0       0       0        0.0%
+   247 ;;COMMON               E      9       9       1       64.3%
+   248 ;;EEDATA             100      0       0       0        0.0%
+   249                           
+   250                           	global	_main
+   251                           psect	maintext,global,class=CODE,delta=2
+   252                           global __pmaintext
+   253  0795                     __pmaintext:
+   254                           
+   255 ;; *************** function _main *****************
+   256 ;; Defined at:
+   257 ;;		line 43 in file "D:\TI\PIC course\led chasing seq\led  seq.c"
+   258 ;; Parameters:    Size  Location     Type
+   259 ;;		None
+   260 ;; Auto vars:     Size  Location     Type
+   261 ;;  i               2    5[COMMON] int 
+   262 ;;  i               2    7[COMMON] int 
+   263 ;; Return value:  Size  Location     Type
+   264 ;;		None               void
+   265 ;; Registers used:
+   266 ;;		wreg, status,2, status,0, btemp+0, pclath, cstack
+   267 ;; Tracked objects:
+   268 ;;		On entry : 17F/0
+   269 ;;		On exit  : 0/0
+   270 ;;		Unchanged: 0/0
+   271 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   272 ;;      Params:         0       0       0       0       0
+   273 ;;      Locals:         4       0       0       0       0
+   274 ;;      Temps:          0       0       0       0       0
+   275 ;;      Totals:         4       0       0       0       0
+   276 ;;Total ram usage:        4 bytes
+   277 ;; Hardware stack levels required when called:    2
+   278 ;; This function calls:
+   279 ;;		_forward
+   280 ;;		_delay
+   281 ;;		_reverse
+   282 ;; This function is called by:
+   283 ;;		Startup code after reset
+   284 ;; This function uses a non-reentrant model
+   285 ;;
+   286                           psect	maintext
+   287                           	file	"D:\TI\PIC course\led chasing seq\led  seq.c"
+   288                           	line	43
+   289                           	global	__size_of_main
+   290  006B                     	__size_of_main	equ	__end_of_main-_main
+   291                           	
+   292  0795                     _main:	
+   293                           	opt	stack 2
+   294                           ; Regs used in _main: [wreg+status,2-btemp+0+pclath+cstack]
+   295                           	line	44
+   296                           	
+   297  0795                     l1796:	
+   298                           ;led  seq.c: 44: TRISD=0x00;
+   299  0795  1683               	bsf	status, 5	;RP0=1, select bank1
+   300  0796  1303               	bcf	status, 6	;RP1=0, select bank1
+   301  0797  0188               	clrf	(136)^080h	;volatile
+   302                           	line	45
+   303                           	
+   304  0798                     l1798:	
+   305                           ;led  seq.c: 45: PORTD=0x01;
+   306  0798  3001               	movlw	(01h)
+   307  0799  1283               	bcf	status, 5	;RP0=0, select bank0
+   308  079A  1303               	bcf	status, 6	;RP1=0, select bank0
+   309  079B  0088               	movwf	(8)	;volatile
+   310                           	line	46
+   311                           ;led  seq.c: 46: while(1)
+   312                           	
+   313  079C                     l582:	
+   314                           	line	49
+   315                           	
+   316  079C                     l1800:	
+   317                           ;led  seq.c: 47: {
+   318                           ;led  seq.c: 49: for(int i=0;i<=4;i++)
+   319  079C  3000               	movlw	low(0)
+   320  079D  00F7               	movwf	(main@i)
+   321  079E  3000               	movlw	high(0)
+   322  079F  00F8               	movwf	((main@i))+1
+   323                           	
+   324  07A0                     l1802:	
+   325  07A0  0878               	movf	(main@i+1),w
+   326  07A1  3A80               	xorlw	80h
+   327  07A2  00FE               	movwf	btemp+0
+   328  07A3  3080               	movlw	(high(05h))^80h
+   329  07A4  027E               	subwf	btemp+0,w
+   330  07A5  1D03               	skipz
+   331  07A6  2FA9               	goto	u2215
+   332  07A7  3005               	movlw	low(05h)
+   333  07A8  0277               	subwf	(main@i),w
+   334  07A9                     u2215:
+   335                           
+   336  07A9  1C03               	skipc
+   337  07AA  2FAC               	goto	u2211
+   338  07AB  2FAD               	goto	u2210
+   339  07AC                     u2211:
+   340  07AC  2FAE               	goto	l583
+   341  07AD                     u2210:
+   342                           	
+   343  07AD                     l1804:	
+   344  07AD  2FC6               	goto	l584
+   345                           	line	50
+   346                           	
+   347  07AE                     l583:	
+   348                           	line	51
+   349                           	
+   350  07AE                     l1806:	
+   351                           ;led  seq.c: 50: {
+   352                           ;led  seq.c: 51: forward();
+   353  07AE  120A  118A  2710   	fcall	_forward
+              120A  118A         
+   354                           	line	49
+   355                           	
+   356  07B3                     l1808:	
+   357  07B3  3001               	movlw	low(01h)
+   358  07B4  07F7               	addwf	(main@i),f
+   359  07B5  1803               	skipnc
+   360  07B6  0AF8               	incf	(main@i+1),f
+   361  07B7  3000               	movlw	high(01h)
+   362  07B8  07F8               	addwf	(main@i+1),f
+   363                           	
+   364  07B9                     l1810:	
+   365  07B9  0878               	movf	(main@i+1),w
+   366  07BA  3A80               	xorlw	80h
+   367  07BB  00FE               	movwf	btemp+0
+   368  07BC  3080               	movlw	(high(05h))^80h
+   369  07BD  027E               	subwf	btemp+0,w
+   370  07BE  1D03               	skipz
+   371  07BF  2FC2               	goto	u2225
+   372  07C0  3005               	movlw	low(05h)
+   373  07C1  0277               	subwf	(main@i),w
+   374  07C2                     u2225:
+   375                           
+   376  07C2  1C03               	skipc
+   377  07C3  2FC5               	goto	u2221
+   378  07C4  2FC6               	goto	u2220
+   379  07C5                     u2221:
+   380  07C5  2FAE               	goto	l583
+   381  07C6                     u2220:
+   382                           	
+   383  07C6                     l584:	
+   384                           	line	54
+   385                           	
+   386  07C6                     l1812:	
+   387                           ;led  seq.c: 52: }
+   388                           ;led  seq.c: 54: delay(20000);
+   389  07C6  3020               	movlw	low(04E20h)
+   390  07C7  00F0               	movwf	(?_delay)
+   391  07C8  304E               	movlw	high(04E20h)
+   392  07C9  00F1               	movwf	((?_delay))+1
+   393  07CA  120A  118A  26EC   	fcall	_delay
+              120A  118A         
+   394                           	line	55
+   395                           	
+   396  07CF                     l1814:	
+   397                           ;led  seq.c: 55: PORTD=0x00;
+   398  07CF  1283               	bcf	status, 5	;RP0=0, select bank0
+   399  07D0  1303               	bcf	status, 6	;RP1=0, select bank0
+   400  07D1  0188               	clrf	(8)	;volatile
+   401                           	line	56
+   402                           	
+   403  07D2                     l1816:	
+   404                           ;led  seq.c: 56: for(int i=0;i<=4;i++)
+   405  07D2  3000               	movlw	low(0)
+   406  07D3  00F5               	movwf	(main@i_308)
+   407  07D4  3000               	movlw	high(0)
+   408  07D5  00F6               	movwf	((main@i_308))+1
+   409                           	
+   410  07D6                     l1818:	
+   411  07D6  0876               	movf	(main@i_308+1),w
+   412  07D7  3A80               	xorlw	80h
+   413  07D8  00FE               	movwf	btemp+0
+   414  07D9  3080               	movlw	(high(05h))^80h
+   415  07DA  027E               	subwf	btemp+0,w
+   416  07DB  1D03               	skipz
+   417  07DC  2FDF               	goto	u2235
+   418  07DD  3005               	movlw	low(05h)
+   419  07DE  0275               	subwf	(main@i_308),w
+   420  07DF                     u2235:
+   421                           
+   422  07DF  1C03               	skipc
+   423  07E0  2FE2               	goto	u2231
+   424  07E1  2FE3               	goto	u2230
+   425  07E2                     u2231:
+   426  07E2  2FE4               	goto	l585
+   427  07E3                     u2230:
+   428                           	
+   429  07E3                     l1820:	
+   430  07E3  2FFC               	goto	l586
+   431                           	line	57
+   432                           	
+   433  07E4                     l585:	
+   434                           	line	58
+   435                           	
+   436  07E4                     l1822:	
+   437                           ;led  seq.c: 57: {
+   438                           ;led  seq.c: 58: reverse();
+   439  07E4  120A  118A  2752   	fcall	_reverse
+              120A  118A         
+   440                           	line	56
+   441                           	
+   442  07E9                     l1824:	
+   443  07E9  3001               	movlw	low(01h)
+   444  07EA  07F5               	addwf	(main@i_308),f
+   445  07EB  1803               	skipnc
+   446  07EC  0AF6               	incf	(main@i_308+1),f
+   447  07ED  3000               	movlw	high(01h)
+   448  07EE  07F6               	addwf	(main@i_308+1),f
+   449                           	
+   450  07EF                     l1826:	
+   451  07EF  0876               	movf	(main@i_308+1),w
+   452  07F0  3A80               	xorlw	80h
+   453  07F1  00FE               	movwf	btemp+0
+   454  07F2  3080               	movlw	(high(05h))^80h
+   455  07F3  027E               	subwf	btemp+0,w
+   456  07F4  1D03               	skipz
+   457  07F5  2FF8               	goto	u2245
+   458  07F6  3005               	movlw	low(05h)
+   459  07F7  0275               	subwf	(main@i_308),w
+   460  07F8                     u2245:
+   461                           
+   462  07F8  1C03               	skipc
+   463  07F9  2FFB               	goto	u2241
+   464  07FA  2FFC               	goto	u2240
+   465  07FB                     u2241:
+   466  07FB  2FE4               	goto	l585
+   467  07FC                     u2240:
+   468                           	
+   469  07FC                     l586:	
+   470                           	line	64
+   471                           	
+   472  07FC                     l587:	
+   473                           	line	46
+   474  07FC  2F9C               	goto	l582
+   475                           	
+   476  07FD                     l588:	
+   477                           	line	66
+   478                           	
+   479  07FD                     l589:	
+   480                           	global	start
+   481  07FD  120A  118A  2800   	ljmp	start
+   482                           	opt stack 0
+   483                           GLOBAL	__end_of_main
+   484  0800                     	__end_of_main:
+   485 ;; =============== function _main ends ============
+   486                           
+   487                           	signat	_main,88
+   488                           	global	_reverse
+   489                           psect	text82,local,class=CODE,delta=2
+   490                           global __ptext82
+   491  0752                     __ptext82:
+   492                           
+   493 ;; *************** function _reverse *****************
+   494 ;; Defined at:
+   495 ;;		line 19 in file "D:\TI\PIC course\led chasing seq\led  seq.c"
+   496 ;; Parameters:    Size  Location     Type
+   497 ;;		None
+   498 ;; Auto vars:     Size  Location     Type
+   499 ;;  i               2    3[COMMON] int 
+   500 ;; Return value:  Size  Location     Type
+   501 ;;		None               void
+   502 ;; Registers used:
+   503 ;;		wreg, status,2, status,0, btemp+0, pclath, cstack
+   504 ;; Tracked objects:
+   505 ;;		On entry : 0/0
+   506 ;;		On exit  : 0/0
+   507 ;;		Unchanged: 0/0
+   508 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   509 ;;      Params:         0       0       0       0       0
+   510 ;;      Locals:         2       0       0       0       0
+   511 ;;      Temps:          1       0       0       0       0
+   512 ;;      Totals:         3       0       0       0       0
+   513 ;;Total ram usage:        3 bytes
+   514 ;; Hardware stack levels used:    1
+   515 ;; Hardware stack levels required when called:    2
+   516 ;; This function calls:
+   517 ;;		_delay
+   518 ;; This function is called by:
+   519 ;;		_main
+   520 ;; This function uses a non-reentrant model
+   521 ;;
+   522                           psect	text82
+   523                           	file	"D:\TI\PIC course\led chasing seq\led  seq.c"
+   524                           	line	19
+   525                           	global	__size_of_reverse
+   526  0043                     	__size_of_reverse	equ	__end_of_reverse-_reverse
+   527                           	
+   528  0752                     _reverse:	
+   529                           	opt	stack 1
+   530                           ; Regs used in _reverse: [wreg+status,2-btemp+0+pclath+cstack]
+   531                           	line	20
+   532                           	
+   533  0752                     l1780:	
+   534                           ;led  seq.c: 20: PORTD=0x80;
+   535  0752  3080               	movlw	(080h)
+   536  0753  1283               	bcf	status, 5	;RP0=0, select bank0
+   537  0754  1303               	bcf	status, 6	;RP1=0, select bank0
+   538  0755  0088               	movwf	(8)	;volatile
+   539                           	line	21
+   540                           ;led  seq.c: 21: for(int i=0;i<8;i++)
+   541  0756  3000               	movlw	low(0)
+   542  0757  00F3               	movwf	(reverse@i)
+   543  0758  3000               	movlw	high(0)
+   544  0759  00F4               	movwf	((reverse@i))+1
+   545                           	
+   546  075A                     l1782:	
+   547  075A  0874               	movf	(reverse@i+1),w
+   548  075B  3A80               	xorlw	80h
+   549  075C  00FE               	movwf	btemp+0
+   550  075D  3080               	movlw	(high(08h))^80h
+   551  075E  027E               	subwf	btemp+0,w
+   552  075F  1D03               	skipz
+   553  0760  2F63               	goto	u2195
+   554  0761  3008               	movlw	low(08h)
+   555  0762  0273               	subwf	(reverse@i),w
+   556  0763                     u2195:
+   557                           
+   558  0763  1C03               	skipc
+   559  0764  2F66               	goto	u2191
+   560  0765  2F67               	goto	u2190
+   561  0766                     u2191:
+   562  0766  2F68               	goto	l572
+   563  0767                     u2190:
+   564                           	
+   565  0767                     l1784:	
+   566  0767  2F94               	goto	l573
+   567                           	line	22
+   568                           	
+   569  0768                     l572:	
+   570                           	line	23
+   571                           	
+   572  0768                     l1786:	
+   573                           ;led  seq.c: 22: {
+   574                           ;led  seq.c: 23: delay(10000);
+   575  0768  3010               	movlw	low(02710h)
+   576  0769  00F0               	movwf	(?_delay)
+   577  076A  3027               	movlw	high(02710h)
+   578  076B  00F1               	movwf	((?_delay))+1
+   579  076C  120A  118A  26EC   	fcall	_delay
+              120A  118A         
+   580                           	line	24
+   581                           	
+   582  0771                     l1788:	
+   583                           ;led  seq.c: 24: PORTD=PORTD>>1;
+   584  0771  1283               	bcf	status, 5	;RP0=0, select bank0
+   585  0772  1303               	bcf	status, 6	;RP1=0, select bank0
+   586  0773  0808               	movf	(8),w	;volatile
+   587  0774  00F2               	movwf	(??_reverse+0)+0
+   588  0775  1003               	clrc
+   589  0776  0C72               	rrf	(??_reverse+0)+0,w
+   590  0777  0088               	movwf	(8)	;volatile
+   591                           	line	25
+   592                           	
+   593  0778                     l1790:	
+   594                           ;led  seq.c: 25: delay(10000);
+   595  0778  3010               	movlw	low(02710h)
+   596  0779  00F0               	movwf	(?_delay)
+   597  077A  3027               	movlw	high(02710h)
+   598  077B  00F1               	movwf	((?_delay))+1
+   599  077C  120A  118A  26EC   	fcall	_delay
+              120A  118A         
+   600                           	line	21
+   601                           	
+   602  0781                     l1792:	
+   603  0781  3001               	movlw	low(01h)
+   604  0782  07F3               	addwf	(reverse@i),f
+   605  0783  1803               	skipnc
+   606  0784  0AF4               	incf	(reverse@i+1),f
+   607  0785  3000               	movlw	high(01h)
+   608  0786  07F4               	addwf	(reverse@i+1),f
+   609                           	
+   610  0787                     l1794:	
+   611  0787  0874               	movf	(reverse@i+1),w
+   612  0788  3A80               	xorlw	80h
+   613  0789  00FE               	movwf	btemp+0
+   614  078A  3080               	movlw	(high(08h))^80h
+   615  078B  027E               	subwf	btemp+0,w
+   616  078C  1D03               	skipz
+   617  078D  2F90               	goto	u2205
+   618  078E  3008               	movlw	low(08h)
+   619  078F  0273               	subwf	(reverse@i),w
+   620  0790                     u2205:
+   621                           
+   622  0790  1C03               	skipc
+   623  0791  2F93               	goto	u2201
+   624  0792  2F94               	goto	u2200
+   625  0793                     u2201:
+   626  0793  2F68               	goto	l572
+   627  0794                     u2200:
+   628                           	
+   629  0794                     l573:	
+   630                           	line	29
+   631                           	
+   632  0794                     l574:	
+   633  0794  0008               	return
+   634                           	opt stack 0
+   635                           GLOBAL	__end_of_reverse
+   636  0795                     	__end_of_reverse:
+   637 ;; =============== function _reverse ends ============
+   638                           
+   639                           	signat	_reverse,88
+   640                           	global	_forward
+   641                           psect	text83,local,class=CODE,delta=2
+   642                           global __ptext83
+   643  0710                     __ptext83:
+   644                           
+   645 ;; *************** function _forward *****************
+   646 ;; Defined at:
+   647 ;;		line 8 in file "D:\TI\PIC course\led chasing seq\led  seq.c"
+   648 ;; Parameters:    Size  Location     Type
+   649 ;;		None
+   650 ;; Auto vars:     Size  Location     Type
+   651 ;;  i               2    3[COMMON] int 
+   652 ;; Return value:  Size  Location     Type
+   653 ;;		None               void
+   654 ;; Registers used:
+   655 ;;		wreg, status,2, status,0, btemp+0, pclath, cstack
+   656 ;; Tracked objects:
+   657 ;;		On entry : 0/0
+   658 ;;		On exit  : 0/0
+   659 ;;		Unchanged: 0/0
+   660 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   661 ;;      Params:         0       0       0       0       0
+   662 ;;      Locals:         2       0       0       0       0
+   663 ;;      Temps:          1       0       0       0       0
+   664 ;;      Totals:         3       0       0       0       0
+   665 ;;Total ram usage:        3 bytes
+   666 ;; Hardware stack levels used:    1
+   667 ;; Hardware stack levels required when called:    2
+   668 ;; This function calls:
+   669 ;;		_delay
+   670 ;; This function is called by:
+   671 ;;		_main
+   672 ;; This function uses a non-reentrant model
+   673 ;;
+   674                           psect	text83
+   675                           	file	"D:\TI\PIC course\led chasing seq\led  seq.c"
+   676                           	line	8
+   677                           	global	__size_of_forward
+   678  0042                     	__size_of_forward	equ	__end_of_forward-_forward
+   679                           	
+   680  0710                     _forward:	
+   681                           	opt	stack 1
+   682                           ; Regs used in _forward: [wreg+status,2-btemp+0+pclath+cstack]
+   683                           	
+   684  0710                     l1764:	
+   685  0710  3001               	movlw	(01h)
+   686  0711  1283               	bcf	status, 5	;RP0=0, select bank0
+   687  0712  1303               	bcf	status, 6	;RP1=0, select bank0
+   688  0713  0088               	movwf	(8)	;volatile
+   689                           	line	9
+   690                           ;led  seq.c: 9: for(int i=0;i<8;i++)
+   691  0714  3000               	movlw	low(0)
+   692  0715  00F3               	movwf	(forward@i)
+   693  0716  3000               	movlw	high(0)
+   694  0717  00F4               	movwf	((forward@i))+1
+   695                           	
+   696  0718                     l1766:	
+   697  0718  0874               	movf	(forward@i+1),w
+   698  0719  3A80               	xorlw	80h
+   699  071A  00FE               	movwf	btemp+0
+   700  071B  3080               	movlw	(high(08h))^80h
+   701  071C  027E               	subwf	btemp+0,w
+   702  071D  1D03               	skipz
+   703  071E  2F21               	goto	u2175
+   704  071F  3008               	movlw	low(08h)
+   705  0720  0273               	subwf	(forward@i),w
+   706  0721                     u2175:
+   707                           
+   708  0721  1C03               	skipc
+   709  0722  2F24               	goto	u2171
+   710  0723  2F25               	goto	u2170
+   711  0724                     u2171:
+   712  0724  2F26               	goto	l567
+   713  0725                     u2170:
+   714                           	
+   715  0725                     l1768:	
+   716  0725  2F51               	goto	l568
+   717                           	line	10
+   718                           	
+   719  0726                     l567:	
+   720                           	line	11
+   721                           	
+   722  0726                     l1770:	
+   723                           ;led  seq.c: 10: {
+   724                           ;led  seq.c: 11: delay(10000);
+   725  0726  3010               	movlw	low(02710h)
+   726  0727  00F0               	movwf	(?_delay)
+   727  0728  3027               	movlw	high(02710h)
+   728  0729  00F1               	movwf	((?_delay))+1
+   729  072A  120A  118A  26EC   	fcall	_delay
+              120A  118A         
+   730                           	line	12
+   731                           	
+   732  072F                     l1772:	
+   733                           ;led  seq.c: 12: PORTD=PORTD<<1;
+   734  072F  1283               	bcf	status, 5	;RP0=0, select bank0
+   735  0730  1303               	bcf	status, 6	;RP1=0, select bank0
+   736  0731  0808               	movf	(8),w	;volatile
+   737  0732  00F2               	movwf	(??_forward+0)+0
+   738  0733  0772               	addwf	(??_forward+0)+0,w
+   739  0734  0088               	movwf	(8)	;volatile
+   740                           	line	13
+   741                           	
+   742  0735                     l1774:	
+   743                           ;led  seq.c: 13: delay(10000);
+   744  0735  3010               	movlw	low(02710h)
+   745  0736  00F0               	movwf	(?_delay)
+   746  0737  3027               	movlw	high(02710h)
+   747  0738  00F1               	movwf	((?_delay))+1
+   748  0739  120A  118A  26EC   	fcall	_delay
+              120A  118A         
+   749                           	line	9
+   750                           	
+   751  073E                     l1776:	
+   752  073E  3001               	movlw	low(01h)
+   753  073F  07F3               	addwf	(forward@i),f
+   754  0740  1803               	skipnc
+   755  0741  0AF4               	incf	(forward@i+1),f
+   756  0742  3000               	movlw	high(01h)
+   757  0743  07F4               	addwf	(forward@i+1),f
+   758                           	
+   759  0744                     l1778:	
+   760  0744  0874               	movf	(forward@i+1),w
+   761  0745  3A80               	xorlw	80h
+   762  0746  00FE               	movwf	btemp+0
+   763  0747  3080               	movlw	(high(08h))^80h
+   764  0748  027E               	subwf	btemp+0,w
+   765  0749  1D03               	skipz
+   766  074A  2F4D               	goto	u2185
+   767  074B  3008               	movlw	low(08h)
+   768  074C  0273               	subwf	(forward@i),w
+   769  074D                     u2185:
+   770                           
+   771  074D  1C03               	skipc
+   772  074E  2F50               	goto	u2181
+   773  074F  2F51               	goto	u2180
+   774  0750                     u2181:
+   775  0750  2F26               	goto	l567
+   776  0751                     u2180:
+   777                           	
+   778  0751                     l568:	
+   779                           	line	17
+   780                           	
+   781  0751                     l569:	
+   782  0751  0008               	return
+   783                           	opt stack 0
+   784                           GLOBAL	__end_of_forward
+   785  0752                     	__end_of_forward:
+   786 ;; =============== function _forward ends ============
+   787                           
+   788                           	signat	_forward,88
+   789                           	global	_delay
+   790                           psect	text84,local,class=CODE,delta=2
+   791                           global __ptext84
+   792  06EC                     __ptext84:
+   793                           
+   794 ;; *************** function _delay *****************
+   795 ;; Defined at:
+   796 ;;		line 3 in file "D:\TI\PIC course\led chasing seq\led  seq.c"
+   797 ;; Parameters:    Size  Location     Type
+   798 ;;  a               2    0[COMMON] unsigned int 
+   799 ;; Auto vars:     Size  Location     Type
+   800 ;;		None
+   801 ;; Return value:  Size  Location     Type
+   802 ;;		None               void
+   803 ;; Registers used:
+   804 ;;		wreg
+   805 ;; Tracked objects:
+   806 ;;		On entry : 0/0
+   807 ;;		On exit  : 0/0
+   808 ;;		Unchanged: 0/0
+   809 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   810 ;;      Params:         2       0       0       0       0
+   811 ;;      Locals:         0       0       0       0       0
+   812 ;;      Temps:          0       0       0       0       0
+   813 ;;      Totals:         2       0       0       0       0
+   814 ;;Total ram usage:        2 bytes
+   815 ;; Hardware stack levels used:    1
+   816 ;; This function calls:
+   817 ;;		Nothing
+   818 ;; This function is called by:
+   819 ;;		_forward
+   820 ;;		_reverse
+   821 ;;		_main
+   822 ;;		_mix
+   823 ;; This function uses a non-reentrant model
+   824 ;;
+   825                           psect	text84
+   826                           	file	"D:\TI\PIC course\led chasing seq\led  seq.c"
+   827                           	line	3
+   828                           	global	__size_of_delay
+   829  0012                     	__size_of_delay	equ	__end_of_delay-_delay
+   830                           	
+   831  06EC                     _delay:	
+   832                           	opt	stack 0
+   833                           ; Regs used in _delay: [wreg]
+   834                           	line	4
+   835                           	
+   836  06EC                     l1510:	
+   837                           ;led  seq.c: 4: while(a--);
+   838  06EC  2EED               	goto	l561
+   839                           	
+   840  06ED                     l562:	
+   841                           	
+   842  06ED                     l561:	
+   843                           	
+   844  06ED                     l1512:	
+   845  06ED  3001               	movlw	low(01h)
+   846  06EE  02F0               	subwf	(delay@a),f
+   847  06EF  3000               	movlw	high(01h)
+   848  06F0  1C03               	skipc
+   849  06F1  03F1               	decf	(delay@a+1),f
+   850  06F2  02F1               	subwf	(delay@a+1),f
+   851  06F3  30FF               	movlw	high(0FFFFh)
+   852  06F4  0671               	xorwf	((delay@a+1)),w
+   853  06F5  1D03               	skipz
+   854  06F6  2EF9               	goto	u1475
+   855  06F7  30FF               	movlw	low(0FFFFh)
+   856  06F8  0670               	xorwf	((delay@a)),w
+   857  06F9                     u1475:
+   858                           
+   859  06F9  1D03               	skipz
+   860  06FA  2EFC               	goto	u1471
+   861  06FB  2EFD               	goto	u1470
+   862  06FC                     u1471:
+   863  06FC  2EED               	goto	l562
+   864  06FD                     u1470:
+   865                           	
+   866  06FD                     l563:	
+   867                           	line	5
+   868                           	
+   869  06FD                     l564:	
+   870  06FD  0008               	return
+   871                           	opt stack 0
+   872                           GLOBAL	__end_of_delay
+   873  06FE                     	__end_of_delay:
+   874 ;; =============== function _delay ends ============
+   875                           
+   876                           	signat	_delay,4216
+   877                           psect	text85,local,class=CODE,delta=2
+   878                           global __ptext85
+   879  0000                     __ptext85:
+   880                           	global	btemp
+   881  007E                     	btemp set 07Eh
+   882                           
+   883                           	DABS	1,126,2	;btemp
+   884                           	global	wtemp0
+   885  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.71 build 6379 
+Symbol Table                                                                                   Tue Sep 05 16:17:40 2017
+
+                   _a 0020                     pc 0002        __size_of_delay 0012                    fsr 0004  
+                 l561 06ED                   l562 06ED                   l563 06FD                   l564 06FD  
+                 l572 0768                   l573 0794                   l574 0794                   l582 079C  
+                 l567 0726                   l583 07AE                   l568 0751                   l584 07C6  
+                 l569 0751                   l585 07E4                   l586 07FC                   l587 07FC  
+                 l588 07FD                   l589 07FD                   indf 0000               ??_delay 0072  
+                l1510 06EC                  l1512 06ED                  l1800 079C                  l1810 07B9  
+                l1802 07A0                  l1820 07E3                  l1812 07C6                  l1804 07AD  
+                l1822 07E4                  l1814 07CF                  l1806 07AE                  l1824 07E9  
+                l1816 07D2                  l1808 07B3                  l1770 0726                  l1826 07EF  
+                l1818 07D6                  l1772 072F                  l1764 0710                  l1780 0752  
+                l1774 0735                  l1766 0718                  l1790 0778                  l1782 075A  
+                l1776 073E                  l1768 0725                  l1792 0781                  l1784 0767  
+                l1778 0744                  l1794 0787                  l1786 0768                  l1788 0771  
+                l1796 0795                  l1798 0798              __ptext82 0752              __ptext83 0710  
+            __ptext84 06EC              __ptext85 0000                  u2200 0794                  u2201 0793  
+                u2210 07AD                  u2211 07AC                  u2220 07C6                  u2205 0790  
+                u2221 07C5                  u2230 07E3                  u2231 07E2                  u2215 07A9  
+                u2240 07FC                  u2241 07FB                  u2225 07C2                  u2170 0725  
+                u2171 0724                  u2235 07DF                  u2180 0751                  u2181 0750  
+                u2245 07F8                  u1470 06FD                  u2190 0767                  u1471 06FC  
+                u2175 0721                  u2191 0766                  u2185 074D                  u1475 06F9  
+                u2195 0763          __pidataBANK0 06D3      __size_of_forward 0042                  _main 0795  
+                btemp 007E      __size_of_reverse 0043                  start 0000   start_initialization 06FE  
+               ?_main 0070         __end_of_delay 06FE                 _PORTD 0008                 _TRISD 0088  
+     __end_of_forward 0752        __pcstackCOMMON 0070       __end_of_reverse 0795                 _delay 06EC  
+            forward@i 0073                 main@i 0077                 pclath 000A                 status 0003  
+               wtemp0 007E         __size_of_main 006B              reverse@i 0073                ??_main 0075  
+          __pmaintext 0795               _forward 0710              ?_forward 0070             main@i_308 0075  
+           ??_forward 0072               _reverse 0752                ?_delay 0070              ?_reverse 0070  
+           ??_reverse 0072          __end_of_main 0800  end_of_initialization 070C               init_ram 06DF  
+              delay@a 0070             init_fetch 06DB           __pdataBANK0 0020  

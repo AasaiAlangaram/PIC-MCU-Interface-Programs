@@ -1,0 +1,494 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.71 build 6379 
+                                                                                               Tue Sep 05 16:43:23 2017
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 6379
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 6379"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 4 "D:\TI\PIC course\single switch led\single switch.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 4 "D:\TI\PIC course\single switch led\single switch.c"
+    45  2007  3F7A               	dw 0x3FFE&0x3F7F&0x3FFF&0x3FFB ;#
+    46                           	FNCALL	_main,_delay
+    47                           	FNROOT	_main
+    48                           	global	_status
+    49                           	global	_RB0
+    50                           psect	maintext,global,class=CODE,delta=2
+    51                           global __pmaintext
+    52  07B0                     __pmaintext:
+    53  0030                     _RB0	set	48
+    54                           	global	_RB1
+    55  0031                     _RB1	set	49
+    56                           	global	_TRISB
+    57  0086                     _TRISB	set	134
+    58                           	file	"single switch LED.as"
+    59                           	line	#
+    60                           psect cinit,class=CODE,delta=2
+    61                           global start_initialization
+    62  0798                     start_initialization:
+    63                           
+    64                           psect	bssCOMMON,class=COMMON,space=1
+    65                           global __pbssCOMMON
+    66  0072                     __pbssCOMMON:
+    67  0072                     _status:
+    68  0072                            ds      2
+    69                           
+    70                           ; Clear objects allocated to COMMON
+    71                           psect cinit,class=CODE,delta=2
+    72  0798  01F2               	clrf	((__pbssCOMMON)+0)&07Fh
+    73  0799  01F3               	clrf	((__pbssCOMMON)+1)&07Fh
+    74                           psect cinit,class=CODE,delta=2
+    75                           global end_of_initialization
+    76                           
+    77                           ;End of C runtime variable initationation code
+    78                           
+    79  079A                     end_of_initialization:
+    80  079A  0183               clrf status
+    81  079B  120A  118A  2FB0   ljmp _main	;jump to C main() function
+    82                           psect	cstackCOMMON,class=COMMON,space=1
+    83                           global __pcstackCOMMON
+    84  0070                     __pcstackCOMMON:
+    85                           	global	?_delay
+    86  0070                     ?_delay:	; 0 bytes @ 0x0
+    87                           	global	?_main
+    88  0070                     ?_main:	; 0 bytes @ 0x0
+    89                           	global	delay@a
+    90  0070                     delay@a:	; 2 bytes @ 0x0
+    91  0070                     	ds	2
+    92                           	global	??_delay
+    93  0072                     ??_delay:	; 0 bytes @ 0x2
+    94                           	global	??_main
+    95  0072                     ??_main:	; 0 bytes @ 0x2
+    96 ;;Data sizes: Strings 0, constant 0, data 0, bss 2, persistent 0 stack 0
+    97 ;;Auto spaces:   Size  Autos    Used
+    98 ;; COMMON          14      2       4
+    99 ;; BANK0           80      0       0
+   100 ;; BANK1           80      0       0
+   101 ;; BANK3           96      0       0
+   102 ;; BANK2           96      0       0
+   103                           
+   104 ;;
+   105 ;; Pointer list with targets:
+   106                           
+   107                           
+   108                           
+   109 ;; Critical Paths (_main)
+   110 ;; COMMON:	_main->_delay
+   111                           
+   112 ;;
+   113 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   114                           
+   115 ;;
+   116 ;;Call Graph Tables:
+   117                           
+   118 ;; ---------------------------------------------------------------------------------
+   119 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   120 ;; ---------------------------------------------------------------------------------
+   121 ;; (0) _main                                                 0     0      0      15
+   122 ;;                              _delay
+   123 ;; ---------------------------------------------------------------------------------
+   124 ;; (4294967295) _delay                                       2     0      2      15
+   125 ;;                                              0 COMMON     2     0      2
+   126 ;; ---------------------------------------------------------------------------------
+   127 ;; Estimated maximum call depth -1
+   128 ;; ---------------------------------------------------------------------------------
+   129                           
+   130 ;; Call Graph Graphs:
+   131                           
+   132 ;; _main (ROOT)
+   133 ;;   _delay
+   134 ;;
+   135                           
+   136 ;; Address spaces:
+   137                           
+   138 ;;Name               Size   Autos  Total    Cost      Usage
+   139 ;;BITCOMMON            E      0       0       0        0.0%
+   140 ;;EEDATA             100      0       0       0        0.0%
+   141 ;;CODE                 0      0       0       0        0.0%
+   142 ;;NULL                 0      0       0       0        0.0%
+   143 ;;COMMON               E      2       4       1       28.6%
+   144 ;;SFR0                 0      0       0       1        0.0%
+   145 ;;BITSFR0              0      0       0       1        0.0%
+   146 ;;BITSFR1              0      0       0       2        0.0%
+   147 ;;SFR1                 0      0       0       2        0.0%
+   148 ;;STACK                0      0       1       2        0.0%
+   149 ;;BITBANK0            50      0       0       3        0.0%
+   150 ;;BANK0               50      0       0       4        0.0%
+   151 ;;SFR3                 0      0       0       4        0.0%
+   152 ;;BITSFR3              0      0       0       4        0.0%
+   153 ;;SFR2                 0      0       0       5        0.0%
+   154 ;;BITSFR2              0      0       0       5        0.0%
+   155 ;;DATA                 0      0       5       5        0.0%
+   156 ;;BITBANK1            50      0       0       6        0.0%
+   157 ;;BANK1               50      0       0       7        0.0%
+   158 ;;BANK3               60      0       0       8        0.0%
+   159 ;;BANK2               60      0       0       9        0.0%
+   160 ;;ABS                  0      0       4      10        0.0%
+   161 ;;BITBANK3            60      0       0      11        0.0%
+   162 ;;BITBANK2            60      0       0      12        0.0%
+   163                           
+   164                           	global	_main
+   165                           psect	maintext
+   166                           
+   167 ;; *************** function _main *****************
+   168 ;; Defined at:
+   169 ;;		line 10 in file "D:\TI\PIC course\single switch led\single switch.c"
+   170 ;; Parameters:    Size  Location     Type
+   171 ;;		None
+   172 ;; Auto vars:     Size  Location     Type
+   173 ;;		None
+   174 ;; Return value:  Size  Location     Type
+   175 ;;		None               void
+   176 ;; Registers used:
+   177 ;;		wreg, status,2, status,0, pclath, cstack
+   178 ;; Tracked objects:
+   179 ;;		On entry : 17F/0
+   180 ;;		On exit  : 0/0
+   181 ;;		Unchanged: 0/0
+   182 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   183 ;;      Params:         0       0       0       0       0
+   184 ;;      Locals:         0       0       0       0       0
+   185 ;;      Temps:          0       0       0       0       0
+   186 ;;      Totals:         0       0       0       0       0
+   187 ;;Total ram usage:        0 bytes
+   188 ;; Hardware stack levels required when called:    1
+   189 ;; This function calls:
+   190 ;;		_delay
+   191 ;; This function is called by:
+   192 ;;		Startup code after reset
+   193 ;; This function uses a non-reentrant model
+   194 ;;
+   195                           psect	maintext
+   196                           	file	"D:\TI\PIC course\single switch led\single switch.c"
+   197                           	line	10
+   198                           	global	__size_of_main
+   199  0050                     	__size_of_main	equ	__end_of_main-_main
+   200                           	
+   201  07B0                     _main:	
+   202                           	opt	stack 1
+   203                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   204                           	line	11
+   205                           	
+   206  07B0                     l1733:	
+   207                           ;single switch.c: 11: TRISB=0xF0;
+   208  07B0  30F0               	movlw	(0F0h)
+   209  07B1  1683               	bsf	status, 5	;RP0=1, select bank1
+   210  07B2  1303               	bcf	status, 6	;RP1=0, select bank1
+   211  07B3  0086               	movwf	(134)^080h	;volatile
+   212                           	line	12
+   213                           	
+   214  07B4                     l1735:	
+   215                           ;single switch.c: 12: status,RB0=0;
+   216  07B4  1283               	bcf	status, 5	;RP0=0, select bank0
+   217  07B5  1303               	bcf	status, 6	;RP1=0, select bank0
+   218  07B6  1006               	bcf	(48/8),(48)&7
+   219                           	line	13
+   220                           ;single switch.c: 13: while(1)
+   221                           	
+   222  07B7                     l567:	
+   223                           	line	15
+   224                           	
+   225  07B7                     l1737:	
+   226                           ;single switch.c: 14: {
+   227                           ;single switch.c: 15: if(status==0&&RB1==1)
+   228  07B7  0873               	movf	((_status+1)),w
+   229  07B8  0472               	iorwf	((_status)),w
+   230  07B9  1D03               	skipz
+   231  07BA  2FBC               	goto	u2151
+   232  07BB  2FBD               	goto	u2150
+   233  07BC                     u2151:
+   234  07BC  2FD9               	goto	l568
+   235  07BD                     u2150:
+   236                           	
+   237  07BD                     l1739:	
+   238  07BD  1283               	bcf	status, 5	;RP0=0, select bank0
+   239  07BE  1303               	bcf	status, 6	;RP1=0, select bank0
+   240  07BF  1C86               	btfss	(49/8),(49)&7
+   241  07C0  2FC2               	goto	u2161
+   242  07C1  2FC3               	goto	u2160
+   243  07C2                     u2161:
+   244  07C2  2FD9               	goto	l568
+   245  07C3                     u2160:
+   246                           	line	16
+   247                           	
+   248  07C3                     l1741:	
+   249                           ;single switch.c: 16: { delay(10000);
+   250  07C3  3010               	movlw	low(02710h)
+   251  07C4  00F0               	movwf	(?_delay)
+   252  07C5  3027               	movlw	high(02710h)
+   253  07C6  00F1               	movwf	((?_delay))+1
+   254  07C7  120A  118A  279E   	fcall	_delay
+              120A  118A         
+   255                           	line	17
+   256                           	
+   257  07CC                     l1743:	
+   258                           ;single switch.c: 17: if(RB1==1)
+   259  07CC  1283               	bcf	status, 5	;RP0=0, select bank0
+   260  07CD  1303               	bcf	status, 6	;RP1=0, select bank0
+   261  07CE  1C86               	btfss	(49/8),(49)&7
+   262  07CF  2FD1               	goto	u2171
+   263  07D0  2FD2               	goto	u2170
+   264  07D1                     u2171:
+   265  07D1  2FD9               	goto	l569
+   266  07D2                     u2170:
+   267                           	line	19
+   268                           	
+   269  07D2                     l1745:	
+   270                           ;single switch.c: 18: {
+   271                           ;single switch.c: 19: RB0=1;
+   272  07D2  1283               	bcf	status, 5	;RP0=0, select bank0
+   273  07D3  1303               	bcf	status, 6	;RP1=0, select bank0
+   274  07D4  1406               	bsf	(48/8),(48)&7
+   275                           	line	20
+   276                           	
+   277  07D5                     l1747:	
+   278                           ;single switch.c: 20: status=1;
+   279  07D5  3001               	movlw	low(01h)
+   280  07D6  00F2               	movwf	(_status)
+   281  07D7  3000               	movlw	high(01h)
+   282  07D8  00F3               	movwf	((_status))+1
+   283                           	line	22
+   284                           	
+   285  07D9                     l569:	
+   286                           	line	23
+   287                           	
+   288  07D9                     l568:	
+   289                           	line	24
+   290                           ;single switch.c: 22: }
+   291                           ;single switch.c: 23: }
+   292                           ;single switch.c: 24: if(status==1&&RB1==1)
+   293  07D9  3001               	movlw	01h
+   294  07DA  0672               	xorwf	(_status),w
+   295  07DB  0473               	iorwf	(_status+1),w
+   296  07DC  1D03               	skipz
+   297  07DD  2FDF               	goto	u2181
+   298  07DE  2FE0               	goto	u2180
+   299  07DF                     u2181:
+   300  07DF  2FFC               	goto	l570
+   301  07E0                     u2180:
+   302                           	
+   303  07E0                     l1749:	
+   304  07E0  1283               	bcf	status, 5	;RP0=0, select bank0
+   305  07E1  1303               	bcf	status, 6	;RP1=0, select bank0
+   306  07E2  1C86               	btfss	(49/8),(49)&7
+   307  07E3  2FE5               	goto	u2191
+   308  07E4  2FE6               	goto	u2190
+   309  07E5                     u2191:
+   310  07E5  2FFC               	goto	l570
+   311  07E6                     u2190:
+   312                           	line	25
+   313                           	
+   314  07E6                     l1751:	
+   315                           ;single switch.c: 25: { delay(10000);
+   316  07E6  3010               	movlw	low(02710h)
+   317  07E7  00F0               	movwf	(?_delay)
+   318  07E8  3027               	movlw	high(02710h)
+   319  07E9  00F1               	movwf	((?_delay))+1
+   320  07EA  120A  118A  279E   	fcall	_delay
+              120A  118A         
+   321                           	line	26
+   322                           	
+   323  07EF                     l1753:	
+   324                           ;single switch.c: 26: if(RB1==1)
+   325  07EF  1283               	bcf	status, 5	;RP0=0, select bank0
+   326  07F0  1303               	bcf	status, 6	;RP1=0, select bank0
+   327  07F1  1C86               	btfss	(49/8),(49)&7
+   328  07F2  2FF4               	goto	u2201
+   329  07F3  2FF5               	goto	u2200
+   330  07F4                     u2201:
+   331  07F4  2FFC               	goto	l571
+   332  07F5                     u2200:
+   333                           	line	28
+   334                           	
+   335  07F5                     l1755:	
+   336                           ;single switch.c: 27: {
+   337                           ;single switch.c: 28: RB0=0;
+   338  07F5  1283               	bcf	status, 5	;RP0=0, select bank0
+   339  07F6  1303               	bcf	status, 6	;RP1=0, select bank0
+   340  07F7  1006               	bcf	(48/8),(48)&7
+   341                           	line	29
+   342                           	
+   343  07F8                     l1757:	
+   344                           ;single switch.c: 29: status=0;
+   345  07F8  3000               	movlw	low(0)
+   346  07F9  00F2               	movwf	(_status)
+   347  07FA  3000               	movlw	high(0)
+   348  07FB  00F3               	movwf	((_status))+1
+   349                           	line	32
+   350                           	
+   351  07FC                     l571:	
+   352                           	line	33
+   353                           	
+   354  07FC                     l570:	
+   355                           	line	34
+   356                           	
+   357  07FC                     l572:	
+   358                           	line	13
+   359  07FC  2FB7               	goto	l567
+   360                           	
+   361  07FD                     l573:	
+   362                           	line	36
+   363                           	
+   364  07FD                     l574:	
+   365                           	global	start
+   366  07FD  120A  118A  2800   	ljmp	start
+   367                           	opt stack 0
+   368                           GLOBAL	__end_of_main
+   369  0800                     	__end_of_main:
+   370 ;; =============== function _main ends ============
+   371                           
+   372                           	signat	_main,88
+   373                           	global	_delay
+   374                           psect	text56,local,class=CODE,delta=2
+   375                           global __ptext56
+   376  079E                     __ptext56:
+   377                           
+   378 ;; *************** function _delay *****************
+   379 ;; Defined at:
+   380 ;;		line 6 in file "D:\TI\PIC course\single switch led\single switch.c"
+   381 ;; Parameters:    Size  Location     Type
+   382 ;;  a               2    0[COMMON] unsigned int 
+   383 ;; Auto vars:     Size  Location     Type
+   384 ;;		None
+   385 ;; Return value:  Size  Location     Type
+   386 ;;		None               void
+   387 ;; Registers used:
+   388 ;;		wreg
+   389 ;; Tracked objects:
+   390 ;;		On entry : 0/0
+   391 ;;		On exit  : 0/0
+   392 ;;		Unchanged: 0/0
+   393 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   394 ;;      Params:         2       0       0       0       0
+   395 ;;      Locals:         0       0       0       0       0
+   396 ;;      Temps:          0       0       0       0       0
+   397 ;;      Totals:         2       0       0       0       0
+   398 ;;Total ram usage:        2 bytes
+   399 ;; Hardware stack levels used:    1
+   400 ;; This function calls:
+   401 ;;		Nothing
+   402 ;; This function is called by:
+   403 ;;		_main
+   404 ;; This function uses a non-reentrant model
+   405 ;;
+   406                           psect	text56
+   407                           	file	"D:\TI\PIC course\single switch led\single switch.c"
+   408                           	line	6
+   409                           	global	__size_of_delay
+   410  0012                     	__size_of_delay	equ	__end_of_delay-_delay
+   411                           	
+   412  079E                     _delay:	
+   413                           	opt	stack 0
+   414                           ; Regs used in _delay: [wreg]
+   415                           	
+   416  079E                     l1501:	
+   417  079E  2F9F               	goto	l561
+   418                           	
+   419  079F                     l562:	
+   420                           	
+   421  079F                     l561:	
+   422                           	
+   423  079F                     l1503:	
+   424  079F  3001               	movlw	low(01h)
+   425  07A0  02F0               	subwf	(delay@a),f
+   426  07A1  3000               	movlw	high(01h)
+   427  07A2  1C03               	skipc
+   428  07A3  03F1               	decf	(delay@a+1),f
+   429  07A4  02F1               	subwf	(delay@a+1),f
+   430  07A5  30FF               	movlw	high(0FFFFh)
+   431  07A6  0671               	xorwf	((delay@a+1)),w
+   432  07A7  1D03               	skipz
+   433  07A8  2FAB               	goto	u1535
+   434  07A9  30FF               	movlw	low(0FFFFh)
+   435  07AA  0670               	xorwf	((delay@a)),w
+   436  07AB                     u1535:
+   437                           
+   438  07AB  1D03               	skipz
+   439  07AC  2FAE               	goto	u1531
+   440  07AD  2FAF               	goto	u1530
+   441  07AE                     u1531:
+   442  07AE  2F9F               	goto	l562
+   443  07AF                     u1530:
+   444                           	
+   445  07AF                     l563:	
+   446                           	line	7
+   447                           	
+   448  07AF                     l564:	
+   449  07AF  0008               	return
+   450                           	opt stack 0
+   451                           GLOBAL	__end_of_delay
+   452  07B0                     	__end_of_delay:
+   453 ;; =============== function _delay ends ============
+   454                           
+   455                           	signat	_delay,4216
+   456                           psect	text57,local,class=CODE,delta=2
+   457                           global __ptext57
+   458  0000                     __ptext57:
+   459                           	global	btemp
+   460  007E                     	btemp set 07Eh
+   461                           
+   462                           	DABS	1,126,2	;btemp
+   463                           	global	wtemp0
+   464  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.71 build 6379 
+Symbol Table                                                                                   Tue Sep 05 16:43:23 2017
+
+      __size_of_delay 0012           __pbssCOMMON 0072                   l561 079F                   l562 079F  
+                 l570 07FC                   l563 07AF                   l571 07FC                   l564 07AF  
+                 l572 07FC                   l573 07FD                   l574 07FD                   l567 07B7  
+                 l568 07D9                   l569 07D9                   _RB0 0030                   _RB1 0031  
+             ??_delay 0072                  l1501 079E                  l1503 079F                  l1741 07C3  
+                l1733 07B0                  l1751 07E6                  l1743 07CC                  l1735 07B4  
+                l1753 07EF                  l1745 07D2                  l1737 07B7                  l1755 07F5  
+                l1747 07D5                  l1739 07BD                  l1757 07F8                  l1749 07E0  
+            __ptext56 079E              __ptext57 0000                  u2200 07F5                  u2201 07F4  
+                u2150 07BD                  u2151 07BC                  u2160 07C3                  u2161 07C2  
+                u1530 07AF                  u2170 07D2                  u1531 07AE                  u2171 07D1  
+                u2180 07E0                  u2181 07DF                  u2190 07E6                  u1535 07AB  
+                u2191 07E5                  _main 07B0                  btemp 007E                  start 0000  
+ start_initialization 0798                 ?_main 0070         __end_of_delay 07B0                 _TRISB 0086  
+      __pcstackCOMMON 0070                 _delay 079E                 status 0003                 wtemp0 007E  
+       __size_of_main 0050                ??_main 0072            __pmaintext 07B0                ?_delay 0070  
+        __end_of_main 0800  end_of_initialization 079A                delay@a 0070                _status 0072  

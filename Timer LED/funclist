@@ -1,0 +1,6 @@
+_Timer0_Delay: CODE, 15 0 23
+_ISR: CODE, 43 0 15
+_main: CODE, 61 0 10
+_reload: CODE, 38 0 5
+i1_reload: CODE, 58 0 3
+Total: 56

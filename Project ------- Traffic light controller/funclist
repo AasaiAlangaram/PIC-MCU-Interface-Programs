@@ -1,0 +1,13 @@
+_lcd_command: CODE, 728 0 61
+_delay: CODE, 1006 0 18
+_display: CODE, 869 0 35
+_lcd_data: CODE, 667 0 61
+_lcd_initialize: CODE, 832 0 37
+_main: CODE, 50 0 518
+_a_way: CODE, 972 0 34
+_b_way: CODE, 938 0 34
+_c_way: CODE, 904 0 34
+_Timer_Delay_1Sec: CODE, 568 0 99
+_ext: CODE, 789 0 43
+i1_delay: CODE, 1024 0 18
+Total: 992

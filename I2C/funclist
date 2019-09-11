@@ -1,0 +1,8 @@
+_intr_clr: CODE, 1919 0 8
+_delay: CODE, 1982 0 17
+_stop: CODE, 1927 0 13
+_main: CODE, 1999 0 49
+_write: CODE, 1966 0 16
+_start: CODE, 1953 0 13
+_wait: CODE, 1940 0 13
+Total: 129

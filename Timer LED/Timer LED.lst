@@ -1,0 +1,417 @@
+
+
+HI-TECH Software PIC PRO Macro Assembler V9.71 build 6379 
+                                                                                               Tue Sep 11 16:26:51 2018
+
+HI-TECH Software Omniscient Code Generator (PRO mode) build 6379
+     1                           	processor	16F877A
+     2                           	opt	pw 120
+     3                           	opt	pm
+     4                           	psect	text58,local,class=CODE,delta=2
+     5                           	psect	cinit,global,class=CODE,delta=2
+     6                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+     7                           	psect	maintext,global,class=CODE,delta=2
+     8                           	psect	text59,local,class=CODE,delta=2
+     9                           	psect	text61,local,class=CODE,delta=2
+    10                           	psect	intentry,global,class=CODE,delta=2
+    11                           	psect	text63,local,class=CODE,delta=2
+    12                           	psect	pa_nodes,global,class=CODE,delta=2
+    13                           	dabs	1,0x7E,2
+    14  000A                     
+    15                           	psect	text58
+    16  0000                     __ptext58:	
+    17  0006                     _PORTB	set	6
+    18  0008                     _PORTD	set	8
+    19  0001                     _TMR0	set	1
+    20  005F                     _GIE	set	95
+    21  005A                     _T0IF	set	90
+    22  005D                     _TMR0IE	set	93
+    23  005A                     _TMR0IF	set	90
+    24  0088                     _TRISD	set	136
+    25                           
+    26                           	psect	cinit
+    27  0047                     start_initialization:	
+    28  0047                     end_of_initialization:	;End of C runtime variable initationation code
+    29                           
+    30  0047  0183               	clrf	3
+    31  0048  120A  118A  283D   	ljmp	_main	;jump to C main() function
+    32                           
+    33                           	psect	cstackCOMMON
+    34  0070                     __pcstackCOMMON:	
+    35  0070                     ?_ISR:	
+    36  0070                     ?_reload:	; 0 bytes @ 0x0
+    37                           
+    38  0070                     ??_ISR:	; 0 bytes @ 0x0
+    39                           
+    40  0070                     ??i1_reload:	; 0 bytes @ 0x0
+    41                           
+    42  0070                     ?i1_reload:	; 0 bytes @ 0x0
+    43                           
+    44  0070                     ?_Timer0_Delay:	; 0 bytes @ 0x0
+    45                           
+    46  0070                     ?_main:	; 0 bytes @ 0x0
+    47                           
+    48                           ; 0 bytes @ 0x0
+    49  0070                     	ds	2
+    50  0072                     ??_Timer0_Delay:	
+    51  0072                     ??_reload:	; 0 bytes @ 0x2
+    52                           
+    53  0072                     Timer0_Delay@i:	; 0 bytes @ 0x2
+    54                           
+    55                           ; 2 bytes @ 0x2
+    56  0072                     	ds	2
+    57  0074                     ??_main:	
+    58                           
+    59                           	psect	maintext
+    60  003D                     __pmaintext:	; 0 bytes @ 0x4
+    61 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+    62 ;;Auto spaces:   Size  Autos    Used
+    63 ;; COMMON          14      4       4
+    64 ;; BANK0           80      0       0
+    65 ;; BANK1           80      0       0
+    66 ;; BANK3           96      0       0
+    67 ;; BANK2           96      0       0
+    68 ;;
+    69 ;; Pointer list with targets:
+    70 ;; COMMON:	_main->_Timer0_Delay
+    71 ;; Critical Paths (_Timer0_Delay)
+    72 ;; Critical Paths (_ISR)
+    73 ;;
+    74 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+    75 ;;
+    76 ;;Call Graph Tables:
+    77 ;; ---------------------------------------------------------------------------------
+    78 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+    79 ;; ---------------------------------------------------------------------------------
+    80 ;; (1) _main                                                 0     0      0      30
+    81 ;;                       _Timer0_Delay
+    82 ;; ---------------------------------------------------------------------------------
+    83 ;; (0) _Timer0_Delay                                         2     2      0      30
+    84 ;;                                              2 COMMON     2     2      0
+    85 ;;                             _reload
+    86 ;; ---------------------------------------------------------------------------------
+    87 ;; (4294967295) _reload                                      0     0      0       0
+    88 ;; ---------------------------------------------------------------------------------
+    89 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+    90 ;; ---------------------------------------------------------------------------------
+    91 ;; (0) _ISR                                                  2     2      0       0
+    92 ;;                                              0 COMMON     2     2      0
+    93 ;;                           i1_reload
+    94 ;; ---------------------------------------------------------------------------------
+    95 ;; (4294967295) i1_reload                                    0     0      0       0
+    96 ;; ---------------------------------------------------------------------------------
+    97 ;; Estimated maximum call depth -1
+    98 ;; ---------------------------------------------------------------------------------
+    99 ;; Call Graph Graphs:
+   100 ;; _Timer0_Delay (ROOT)
+   101 ;;   _reload
+   102 ;;
+   103 ;; _ISR (ROOT)
+   104 ;;   i1_reload
+   105 ;;
+   106 ;; Address spaces:
+   107 ;;Name               Size   Autos  Total    Cost      Usage
+   108 ;;BITCOMMON            E      0       0       0        0.0%
+   109 ;;EEDATA             100      0       0       0        0.0%
+   110 ;;CODE                 0      0       0       0        0.0%
+   111 ;;NULL                 0      0       0       0        0.0%
+   112 ;;COMMON               E      4       4       1       28.6%
+   113 ;;SFR0                 0      0       0       1        0.0%
+   114 ;;BITSFR0              0      0       0       1        0.0%
+   115 ;;BITSFR1              0      0       0       2        0.0%
+   116 ;;SFR1                 0      0       0       2        0.0%
+   117 ;;STACK                0      0       6       2        0.0%
+   118 ;;BITBANK0            50      0       0       3        0.0%
+   119 ;;BANK0               50      0       0       4        0.0%
+   120 ;;SFR3                 0      0       0       4        0.0%
+   121 ;;BITSFR3              0      0       0       4        0.0%
+   122 ;;SFR2                 0      0       0       5        0.0%
+   123 ;;BITSFR2              0      0       0       5        0.0%
+   124 ;;DATA                 0      0       0       5        0.0%
+   125 ;;BITBANK1            50      0       0       6        0.0%
+   126 ;;BANK1               50      0       0       7        0.0%
+   127 ;;BANK3               60      0       0       8        0.0%
+   128 ;;BANK2               60      0       0       9        0.0%
+   129 ;;ABS                  0      0       0      10        0.0%
+   130 ;;BITBANK3            60      0       0      11        0.0%
+   131 ;;BITBANK2            60      0       0      12        0.0%
+   132                           
+   133 ;; *************** function _main *****************
+   134 ;; Defined at:
+   135 ;;		line 28 in file "C:\Users\Admin\Desktop\PIC\PIC course\Timer LED\Timer LED.c"
+   136 ;; Parameters:    Size  Location     Type
+   137 ;;		None
+   138 ;; Auto vars:     Size  Location     Type
+   139 ;;		None
+   140 ;; Return value:  Size  Location     Type
+   141 ;;		None               void
+   142 ;; Registers used:
+   143 ;;		wreg, status,2, status,0, btemp+0, pclath, cstack
+   144 ;; Tracked objects:
+   145 ;;		On entry : 17F/0
+   146 ;;		On exit  : 0/0
+   147 ;;		Unchanged: FFE00/0
+   148 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   149 ;;      Params:         0       0       0       0       0
+   150 ;;      Locals:         0       0       0       0       0
+   151 ;;      Temps:          0       0       0       0       0
+   152 ;;      Totals:         0       0       0       0       0
+   153 ;;Total ram usage:        0 bytes
+   154 ;; Hardware stack levels required when called:    4
+   155 ;; This function calls:
+   156 ;;		_Timer0_Delay
+   157 ;; This function is called by:
+   158 ;;		Startup code after reset
+   159 ;; This function uses a non-reentrant model
+   160 ;;
+   161  003D                     _main:	
+   162                           ;Timer LED.c: 29: TRISD=0x00;PORTD=0x00;
+   163                           ; Regs used in _main: [wreg+status,2-btemp+0+pclath+cstack]
+   164  003D  1683               	bsf	3,5	;RP0=1, select bank1
+   165  003E  0188               	clrf	8	;volatile
+   166  003F  1283               	bcf	3,5	;RP0=0, select bank0
+   167  0040  0188               	clrf	8	;volatile
+   168  0041                     l973:	
+   169                           ;Timer LED.c: 31: {
+   170                           ;Timer LED.c: 34: Timer0_Delay();
+   171  0041  120A  118A  200F   	fcall	_Timer0_Delay
+      +       120A  118A         
+   172  0046  2841               	goto	l973
+   173  0047                     __end_of_main:	
+   174                           
+   175                           	psect	text59
+   176  000F                     __ptext59:	;; =============== function _main ends ============
+   177                           
+   178 ;; *************** function _Timer0_Delay *****************
+   179 ;; Defined at:
+   180 ;;		line 4 in file "C:\Users\Admin\Desktop\PIC\PIC course\Timer LED\Timer LED.c"
+   181 ;; Parameters:    Size  Location     Type
+   182 ;;		None
+   183 ;; Auto vars:     Size  Location     Type
+   184 ;;  i               2    2[COMMON] int 
+   185 ;; Return value:  Size  Location     Type
+   186 ;;		None               void
+   187 ;; Registers used:
+   188 ;;		wreg, status,2, status,0, btemp+0, pclath, cstack
+   189 ;; Tracked objects:
+   190 ;;		On entry : 0/0
+   191 ;;		On exit  : 0/0
+   192 ;;		Unchanged: FFE00/0
+   193 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   194 ;;      Params:         0       0       0       0       0
+   195 ;;      Locals:         2       0       0       0       0
+   196 ;;      Temps:          0       0       0       0       0
+   197 ;;      Totals:         2       0       0       0       0
+   198 ;;Total ram usage:        2 bytes
+   199 ;; Hardware stack levels used:    1
+   200 ;; Hardware stack levels required when called:    4
+   201 ;; This function calls:
+   202 ;;		_reload
+   203 ;; This function is called by:
+   204 ;;		_main
+   205 ;; This function uses a non-reentrant model
+   206 ;;
+   207  000F                     _Timer0_Delay:	
+   208                           ; Regs used in _Timer0_Delay: [wreg+status,2-btemp+0+pclath+cstack]
+   209  000F  01F2               	clrf	Timer0_Delay@i
+   210  0010  01F3               	clrf	Timer0_Delay@i+1
+   211  0011                     l561:	
+   212                           ;Timer LED.c: 5: {
+   213                           ;Timer LED.c: 6: TMR0IE=1;
+   214  0011  168B               	bsf	11,5
+   215                           ;Timer LED.c: 7: GIE=1;
+   216  0012  178B               	bsf	11,7
+   217                           ;Timer LED.c: 12: PS0=PS1=PS2=1;
+   218  0013  110B               	bcf	11,2
+   219                           ;Timer LED.c: 13: reload();
+   220  0014  2026  120A  118A   	fcall	_reload
+   221  0017  0AF2               	incf	Timer0_Delay@i,f
+   222  0018  1903               	skipnz
+   223  0019  0AF3               	incf	Timer0_Delay@i+1,f
+   224  001A  0873               	movf	Timer0_Delay@i+1,w
+   225  001B  3A80               	xorlw	128
+   226  001C  00FE               	movwf	126
+   227  001D  3080               	movlw	128
+   228  001E  027E               	subwf	126,w
+   229  001F  1D03               	skipz
+   230  0020  2823               	goto	u25
+   231  0021  3014               	movlw	20
+   232  0022  0272               	subwf	Timer0_Delay@i,w
+   233  0023                     u25:	
+   234  0023  1803               	btfsc	3,0
+   235  0024  0008               	return
+   236  0025  2811               	goto	l561
+   237  0026                     __end_of_Timer0_Delay:	
+   238  0026                     __ptext60:	;; =============== function _Timer0_Delay ends ============
+   239                           
+   240 ;; *************** function _reload *****************
+   241 ;; Defined at:
+   242 ;;		line 64 in file "C:\Users\Admin\Desktop\PIC\PIC course\Timer LED\Timer LED.c"
+   243 ;; Parameters:    Size  Location     Type
+   244 ;;		None
+   245 ;; Auto vars:     Size  Location     Type
+   246 ;;		None
+   247 ;; Return value:  Size  Location     Type
+   248 ;;		None               void
+   249 ;; Registers used:
+   250 ;;		wreg
+   251 ;; Tracked objects:
+   252 ;;		On entry : 0/0
+   253 ;;		On exit  : 60/0
+   254 ;;		Unchanged: FFF9F/0
+   255 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   256 ;;      Params:         0       0       0       0       0
+   257 ;;      Locals:         0       0       0       0       0
+   258 ;;      Temps:          0       0       0       0       0
+   259 ;;      Totals:         0       0       0       0       0
+   260 ;;Total ram usage:        0 bytes
+   261 ;; Hardware stack levels used:    1
+   262 ;; Hardware stack levels required when called:    3
+   263 ;; This function calls:
+   264 ;;		Nothing
+   265 ;; This function is called by:
+   266 ;;		_Timer0_Delay
+   267 ;; This function uses a non-reentrant model
+   268 ;;
+   269  0026                     _reload:	
+   270                           ;Timer LED.c: 65: TMR0=60;
+   271                           ; Regs used in _reload: [wreg]
+   272  0026  303C               	movlw	60
+   273  0027  1283               	bcf	3,5	;RP0=0, select bank0
+   274  0028  1303               	bcf	3,6	;RP1=0, select bank0
+   275  0029  0081               	movwf	1	;volatile
+   276  002A  0008               	return
+   277  002B                     __end_of_reload:	
+   278                           
+   279                           	psect	text61
+   280  002B                     __ptext61:	;; =============== function _reload ends ============
+   281                           
+   282 ;; *************** function _ISR *****************
+   283 ;; Defined at:
+   284 ;;		line 20 in file "C:\Users\Admin\Desktop\PIC\PIC course\Timer LED\Timer LED.c"
+   285 ;; Parameters:    Size  Location     Type
+   286 ;;		None
+   287 ;; Auto vars:     Size  Location     Type
+   288 ;;		None
+   289 ;; Return value:  Size  Location     Type
+   290 ;;		None               void
+   291 ;; Registers used:
+   292 ;;		wreg, status,2, status,0, pclath, cstack
+   293 ;; Tracked objects:
+   294 ;;		On entry : 0/0
+   295 ;;		On exit  : 0/0
+   296 ;;		Unchanged: FFF9F/0
+   297 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   298 ;;      Params:         0       0       0       0       0
+   299 ;;      Locals:         0       0       0       0       0
+   300 ;;      Temps:          2       0       0       0       0
+   301 ;;      Totals:         2       0       0       0       0
+   302 ;;Total ram usage:        2 bytes
+   303 ;; Hardware stack levels used:    1
+   304 ;; Hardware stack levels required when called:    2
+   305 ;; This function calls:
+   306 ;;		i1_reload
+   307 ;; This function is called by:
+   308 ;;		Interrupt level 1
+   309 ;; This function uses a non-reentrant model
+   310 ;;
+   311  002B                     _ISR:	
+   312                           ;Timer LED.c: 21: if(TMR0IF==1)
+   313  002B  1D0B               	btfss	11,2
+   314  002C  2833               	goto	i1l567
+   315                           ;Timer LED.c: 22: {
+   316                           ;Timer LED.c: 23: PORTB=0xff;
+   317  002D  30FF               	movlw	255
+   318  002E  1283               	bcf	3,5	;RP0=0, select bank0
+   319  002F  1303               	bcf	3,6	;RP1=0, select bank0
+   320  0030  0086               	movwf	6	;volatile
+   321                           ;Timer LED.c: 24: TMR0IF=0;reload();
+   322  0031  110B               	bcf	11,2
+   323  0032  203A               	fcall	i1_reload
+   324  0033                     i1l567:	
+   325  0033  0871               	movf	??_ISR+1,w
+   326  0034  008A               	movwf	10
+   327  0035  0870               	movf	??_ISR,w
+   328  0036  0083               	movwf	3
+   329  0037  0EFE               	swapf	126,f
+   330  0038  0E7E               	swapf	126,w
+   331  0039  0009               	retfie
+   332  003A                     __end_of_ISR:	
+   333  003A                     __ptext62:	;; =============== function _ISR ends ============
+   334                           
+   335 ;; *************** function i1_reload *****************
+   336 ;; Defined at:
+   337 ;;		line 64 in file "C:\Users\Admin\Desktop\PIC\PIC course\Timer LED\Timer LED.c"
+   338 ;; Parameters:    Size  Location     Type
+   339 ;;		None
+   340 ;; Auto vars:     Size  Location     Type
+   341 ;;		None
+   342 ;; Return value:  Size  Location     Type
+   343 ;;		None               void
+   344 ;; Registers used:
+   345 ;;		wreg
+   346 ;; Tracked objects:
+   347 ;;		On entry : 60/0
+   348 ;;		On exit  : 60/0
+   349 ;;		Unchanged: FFF9F/0
+   350 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   351 ;;      Params:         0       0       0       0       0
+   352 ;;      Locals:         0       0       0       0       0
+   353 ;;      Temps:          0       0       0       0       0
+   354 ;;      Totals:         0       0       0       0       0
+   355 ;;Total ram usage:        0 bytes
+   356 ;; Hardware stack levels used:    1
+   357 ;; This function calls:
+   358 ;;		Nothing
+   359 ;; This function is called by:
+   360 ;;		_ISR
+   361 ;; This function uses a non-reentrant model
+   362 ;;
+   363  003A                     i1_reload:	
+   364                           ;Timer LED.c: 65: TMR0=60;
+   365                           ; Regs used in i1_reload: [wreg]
+   366  003A  303C               	movlw	60
+   367  003B  0081               	movwf	1	;volatile
+   368  003C  0008               	return
+   369  003D                     __end_ofi1_reload:	
+   370                           
+   371                           	psect	intentry
+   372  0004                     __pintentry:	; Regs used in _ISR: [wreg+status,2+status,0+pclath+cstack]
+   373                           
+   374  0004                     interrupt_function:	
+   375  007E                     saved_w	set	btemp
+   376  0004  00FE               	movwf	btemp
+   377  0005  0803               	movf	3,w
+   378  0006  00F0               	movwf	??_ISR
+   379  0007  080A               	movf	10,w
+   380  0008  00F1               	movwf	??_ISR+1
+   381  0009  120A  118A  282B   	ljmp	_ISR
+   382                           
+   383                           	psect	text63
+   384  0000                     __ptext63:	;; =============== function i1_reload ends ============
+   385                           
+   386  007E                     btemp	set	126	;btemp
+   387  007E                     wtemp0	set	126
+
+
+HI-TECH Software PICC Macro Assembler V9.71 build 6379 
+Symbol Table                                                                                   Tue Sep 11 16:26:51 2018
+
+    __size_ofi1_reload 0003                     u25 0023                    l561 0011                    l563 0000  
+                  l576 0000                    l945 0000                    l971 0000                    l965 0000  
+                  l973 0041                    l967 0000                    l959 0000                    l969 0000  
+                  _GIE 005F                    _ISR 002B        __size_of_reload 0005         ??_Timer0_Delay 0072  
+                 ?_ISR 0070          Timer0_Delay@i 0072               __ptext60 0026               __ptext61 002B  
+             __ptext62 003A               __ptext63 0000               __ptext58 0000               __ptext59 000F  
+                 _T0IF 005A                   _TMR0 0001                   _main 003D                   btemp 007E  
+                 start 000C      interrupt_function 0004    start_initialization 0047                  ??_ISR 0070  
+              ?_reload 0070                  ?_main 0070               ??_reload 0072                  i1l567 0033  
+                i1l576 0000                  i1l951 0000                  i1l955 0000                  i1l949 0000  
+                i1l957 0000                  _PORTB 0006                  _PORTD 0008                  _TRISD 0088  
+         _Timer0_Delay 000F         __pcstackCOMMON 0070       __end_ofi1_reload 003D   __end_of_Timer0_Delay 0026  
+                pclath 000A               intlevel1 0000                  status 0003                  wtemp0 007E  
+        __size_of_main 000A                 ??_main 0074             __pmaintext 003D          ?_Timer0_Delay 0070  
+           __pintentry 0004           __end_of_main 0047   end_of_initialization 0047         __end_of_reload 002B  
+               _TMR0IE 005D                 _TMR0IF 005A  __size_of_Timer0_Delay 0017           __size_of_ISR 000F  
+               _reload 0026            __end_of_ISR 003A                 saved_w 007E               i1_reload 003A  
+            ?i1_reload 0070             ??i1_reload 0070  

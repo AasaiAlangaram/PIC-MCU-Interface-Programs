@@ -1,0 +1,16 @@
+_PWM_3: CODE, 923 0 74
+_lcd_command: CODE, 709 0 67
+_delay: CODE, 459 0 18
+_display: CODE, 477 0 31
+_lcd_data: CODE, 642 0 67
+___ftpack: CODE, 1071 0 117
+_lcd_initialize: CODE, 544 0 37
+_main: CODE, 1639 0 409
+___lwdiv: CODE, 776 0 73
+___lbtoft: CODE, 508 0 36
+_PWM_1: CODE, 849 0 74
+___lwmod: CODE, 581 0 61
+___ftmul: CODE, 1368 0 271
+_PWM_2: CODE, 997 0 74
+___fttol: CODE, 1188 0 180
+Total: 1589

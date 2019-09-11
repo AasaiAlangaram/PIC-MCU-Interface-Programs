@@ -1,0 +1,185 @@
+[Header]
+MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
+Version=1.0
+[File000]
+Location=D:\TI\PIC course\Prasanth I2C\I2C Demo TEST\i2c Master\i2c master.p1
+Folder=Intermediary
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.71\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|i2c master.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=3,1
+TraceCmdString=
+DebugOptions=
+[File001]
+Location=D:\TI\PIC course\Prasanth I2C\I2C Demo TEST\i2c Master\i2c master.cof
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.71\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|i2c master.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=3,1
+TraceCmdString=
+DebugOptions=
+[File002]
+Location=D:\TI\PIC course\Prasanth I2C\I2C Demo TEST\i2c Master\i2c master.hex
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.71\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|i2c master.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=3,1
+TraceCmdString=
+DebugOptions=
+[File003]
+Location=D:\TI\PIC course\Prasanth I2C\I2C Demo TEST\i2c Master\i2c master.sym
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.71\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|i2c master.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=3,1
+TraceCmdString=
+DebugOptions=
+[File004]
+Location=D:\TI\PIC course\Prasanth I2C\I2C Demo TEST\i2c Master\i2c master.map
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.71\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|i2c master.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=3,1
+TraceCmdString=
+DebugOptions=
+[File005]
+Location=D:\TI\PIC course\Prasanth I2C\I2C Demo TEST\i2c Master\i2c master.hxl
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.71\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|i2c master.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=3,1
+TraceCmdString=
+DebugOptions=
+[File006]
+Location=D:\TI\PIC course\Prasanth I2C\I2C Demo TEST\i2c Master\startup.lst
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.71\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|i2c master.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=3,1
+TraceCmdString=
+DebugOptions=
+[File007]
+Location=D:\TI\PIC course\Prasanth I2C\I2C Demo TEST\i2c Master\startup.rlf
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.71\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|i2c master.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=3,1
+TraceCmdString=
+DebugOptions=
+[File008]
+Location=D:\TI\PIC course\Prasanth I2C\I2C Demo TEST\i2c Master\doprnt.p1
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.71\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|i2c master.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=3,1
+TraceCmdString=
+DebugOptions=
+[File009]
+Location=D:\TI\PIC course\Prasanth I2C\I2C Demo TEST\i2c Master\doprnt.pre
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.71\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|i2c master.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=3,1
+TraceCmdString=
+DebugOptions=
+[File010]
+Location=D:\TI\PIC course\Prasanth I2C\I2C Demo TEST\i2c Master\i2c master.obj
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.71\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|i2c master.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=3,1
+TraceCmdString=
+DebugOptions=
+[File011]
+Location=D:\TI\PIC course\Prasanth I2C\I2C Demo TEST\i2c Master\i2c master.lst
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.71\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|i2c master.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=3,1
+TraceCmdString=
+DebugOptions=
+[File012]
+Location=D:\TI\PIC course\Prasanth I2C\I2C Demo TEST\i2c Master\i2c master.rlf
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.71\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|i2c master.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=3,1
+TraceCmdString=
+DebugOptions=
+[File013]
+Location=D:\TI\PIC course\Prasanth I2C\I2C Demo TEST\i2c Master\i2c master.sdb
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.71\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|i2c master.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=3,1
+TraceCmdString=
+DebugOptions=

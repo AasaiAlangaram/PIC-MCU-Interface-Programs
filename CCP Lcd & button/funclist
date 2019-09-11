@@ -1,0 +1,10 @@
+_lcd_command: CODE, 1757 0 17
+_delay: CODE, 1774 0 12
+_display: CODE, 1699 0 19
+_lcd_data: CODE, 1718 0 17
+_lcd_initialize: CODE, 1735 0 22
+_main: CODE, 1808 0 240
+_t1_delay: CODE, 1612 0 9
+___lwdiv: CODE, 1657 0 42
+___lwmod: CODE, 1621 0 36
+Total: 414

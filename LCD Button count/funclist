@@ -1,0 +1,11 @@
+___awdiv: CODE, 1562 0 121
+_lcd_command: CODE, 1186 0 61
+_delay: CODE, 1096 0 20
+_display: CODE, 1116 0 33
+_lcd_data: CODE, 1247 0 61
+_lcd_initialize: CODE, 1149 0 37
+___awmod: CODE, 1456 0 106
+_main: CODE, 1683 0 365
+___lwdiv: CODE, 1376 0 80
+___lwmod: CODE, 1308 0 68
+Total: 952

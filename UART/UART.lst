@@ -1,0 +1,285 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.71 build 6379 
+                                                                                               Sun Jul 23 14:45:44 2017
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 6379
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 6379"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           	FNROOT	_main
+    43                           	global	_TXREG
+    44                           psect	maintext,global,class=CODE,delta=2
+    45                           global __pmaintext
+    46  07E1                     __pmaintext:
+    47  0019                     _TXREG	set	25
+    48                           	global	_SPEN
+    49  00C7                     _SPEN	set	199
+    50                           	global	_SPBRG
+    51  0099                     _SPBRG	set	153
+    52                           	global	_TRISC
+    53  0087                     _TRISC	set	135
+    54                           	global	_BRGH
+    55  04C2                     _BRGH	set	1218
+    56                           	global	_SYNC
+    57  04C4                     _SYNC	set	1220
+    58                           	global	_TXEN
+    59  04C5                     _TXEN	set	1221
+    60                           	file	"UART.as"
+    61                           	line	#
+    62                           psect cinit,class=CODE,delta=2
+    63                           global start_initialization
+    64  07DD                     start_initialization:
+    65                           
+    66                           psect cinit,class=CODE,delta=2
+    67                           global end_of_initialization
+    68                           
+    69                           ;End of C runtime variable initationation code
+    70                           
+    71  07DD                     end_of_initialization:
+    72  07DD  0183               clrf status
+    73  07DE  120A  118A  2FE1   ljmp _main	;jump to C main() function
+    74                           psect	cstackCOMMON,class=COMMON,space=1
+    75                           global __pcstackCOMMON
+    76  0000                     __pcstackCOMMON:
+    77                           	global	??_main
+    78  0000                     ??_main:	; 0 bytes @ 0x0
+    79                           	global	?_main
+    80  0000                     ?_main:	; 0 bytes @ 0x0
+    81 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+    82 ;;Auto spaces:   Size  Autos    Used
+    83 ;; COMMON          14      0       0
+    84 ;; BANK0           80      0       0
+    85 ;; BANK1           80      0       0
+    86 ;; BANK3           96      0       0
+    87 ;; BANK2           96      0       0
+    88                           
+    89 ;;
+    90 ;; Pointer list with targets:
+    91                           
+    92                           
+    93                           
+    94 ;;
+    95 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+    96                           
+    97 ;;
+    98 ;;Call Graph Tables:
+    99                           
+   100 ;; ---------------------------------------------------------------------------------
+   101 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   102 ;; ---------------------------------------------------------------------------------
+   103 ;; (4294967295) _main                                        0     0      0       0
+   104 ;; ---------------------------------------------------------------------------------
+   105 ;; Estimated maximum call depth -1
+   106 ;; ---------------------------------------------------------------------------------
+   107                           
+   108 ;; Call Graph Graphs:
+   109                           
+   110                           
+   111 ;; Address spaces:
+   112                           
+   113 ;;Name               Size   Autos  Total    Cost      Usage
+   114 ;;BITCOMMON            E      0       0       0        0.0%
+   115 ;;EEDATA             100      0       0       0        0.0%
+   116 ;;CODE                 0      0       0       0        0.0%
+   117 ;;NULL                 0      0       0       0        0.0%
+   118 ;;COMMON               E      0       0       1        0.0%
+   119 ;;SFR0                 0      0       0       1        0.0%
+   120 ;;BITSFR0              0      0       0       1        0.0%
+   121 ;;BITSFR1              0      0       0       2        0.0%
+   122 ;;SFR1                 0      0       0       2        0.0%
+   123 ;;STACK                0      0       0       2        0.0%
+   124 ;;BITBANK0            50      0       0       3        0.0%
+   125 ;;BANK0               50      0       0       4        0.0%
+   126 ;;SFR3                 0      0       0       4        0.0%
+   127 ;;BITSFR3              0      0       0       4        0.0%
+   128 ;;SFR2                 0      0       0       5        0.0%
+   129 ;;BITSFR2              0      0       0       5        0.0%
+   130 ;;DATA                 0      0       0       5        0.0%
+   131 ;;BITBANK1            50      0       0       6        0.0%
+   132 ;;BANK1               50      0       0       7        0.0%
+   133 ;;BANK3               60      0       0       8        0.0%
+   134 ;;BANK2               60      0       0       9        0.0%
+   135 ;;ABS                  0      0       0      10        0.0%
+   136 ;;BITBANK3            60      0       0      11        0.0%
+   137 ;;BITBANK2            60      0       0      12        0.0%
+   138                           
+   139                           	global	_main
+   140                           psect	maintext
+   141                           
+   142 ;; *************** function _main *****************
+   143 ;; Defined at:
+   144 ;;		line 8 in file "D:\TI\PIC course\UART\UART.c"
+   145 ;; Parameters:    Size  Location     Type
+   146 ;;		None
+   147 ;; Auto vars:     Size  Location     Type
+   148 ;;		None
+   149 ;; Return value:  Size  Location     Type
+   150 ;;		None               void
+   151 ;; Registers used:
+   152 ;;		wreg, status,2
+   153 ;; Tracked objects:
+   154 ;;		On entry : 17F/0
+   155 ;;		On exit  : 0/0
+   156 ;;		Unchanged: 0/0
+   157 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   158 ;;      Params:         0       0       0       0       0
+   159 ;;      Locals:         0       0       0       0       0
+   160 ;;      Temps:          0       0       0       0       0
+   161 ;;      Totals:         0       0       0       0       0
+   162 ;;Total ram usage:        0 bytes
+   163 ;; This function calls:
+   164 ;;		Nothing
+   165 ;; This function is called by:
+   166 ;;		Startup code after reset
+   167 ;; This function uses a non-reentrant model
+   168 ;;
+   169                           psect	maintext
+   170                           	file	"D:\TI\PIC course\UART\UART.c"
+   171                           	line	8
+   172                           	global	__size_of_main
+   173  001F                     	__size_of_main	equ	__end_of_main-_main
+   174                           	
+   175  07E1                     _main:	
+   176                           	opt	stack 0
+   177                           ; Regs used in _main: [wreg+status,2]
+   178                           	line	9
+   179                           	
+   180  07E1                     l1493:	
+   181                           ;UART.c: 9: TRISC=0x00;
+   182  07E1  1683               	bsf	status, 5	;RP0=1, select bank1
+   183  07E2  1303               	bcf	status, 6	;RP1=0, select bank1
+   184  07E3  0187               	clrf	(135)^080h	;volatile
+   185                           	line	10
+   186                           	
+   187  07E4                     l1495:	
+   188                           ;UART.c: 10: SYNC=0;
+   189  07E4  1683               	bsf	status, 5	;RP0=1, select bank1
+   190  07E5  1303               	bcf	status, 6	;RP1=0, select bank1
+   191  07E6  1218               	bcf	(1220/8)^080h,(1220)&7
+   192                           	line	11
+   193                           	
+   194  07E7                     l1497:	
+   195                           ;UART.c: 11: TXEN=1;
+   196  07E7  1683               	bsf	status, 5	;RP0=1, select bank1
+   197  07E8  1303               	bcf	status, 6	;RP1=0, select bank1
+   198  07E9  1698               	bsf	(1221/8)^080h,(1221)&7
+   199                           	line	12
+   200                           	
+   201  07EA                     l1499:	
+   202                           ;UART.c: 12: BRGH=1;
+   203  07EA  1683               	bsf	status, 5	;RP0=1, select bank1
+   204  07EB  1303               	bcf	status, 6	;RP1=0, select bank1
+   205  07EC  1518               	bsf	(1218/8)^080h,(1218)&7
+   206                           	line	13
+   207                           	
+   208  07ED                     l1501:	
+   209                           ;UART.c: 13: SPBRG=25;
+   210  07ED  3019               	movlw	(019h)
+   211  07EE  1683               	bsf	status, 5	;RP0=1, select bank1
+   212  07EF  1303               	bcf	status, 6	;RP1=0, select bank1
+   213  07F0  0099               	movwf	(153)^080h	;volatile
+   214                           	line	14
+   215                           	
+   216  07F1                     l1503:	
+   217                           ;UART.c: 14: SPEN=1;
+   218  07F1  1283               	bcf	status, 5	;RP0=0, select bank0
+   219  07F2  1303               	bcf	status, 6	;RP1=0, select bank0
+   220  07F3  1798               	bsf	(199/8),(199)&7
+   221                           	line	15
+   222                           	
+   223  07F4                     l1505:	
+   224                           ;UART.c: 15: TXREG='A';
+   225  07F4  3041               	movlw	(041h)
+   226  07F5  1283               	bcf	status, 5	;RP0=0, select bank0
+   227  07F6  1303               	bcf	status, 6	;RP1=0, select bank0
+   228  07F7  0099               	movwf	(25)	;volatile
+   229                           	line	16
+   230                           ;UART.c: 16: while(1)
+   231                           	
+   232  07F8                     l565:	
+   233                           	line	18
+   234                           	
+   235  07F8                     l1507:	
+   236                           ;UART.c: 17: {
+   237                           ;UART.c: 18: TXREG='A';
+   238  07F8  3041               	movlw	(041h)
+   239  07F9  1283               	bcf	status, 5	;RP0=0, select bank0
+   240  07FA  1303               	bcf	status, 6	;RP1=0, select bank0
+   241  07FB  0099               	movwf	(25)	;volatile
+   242                           	line	24
+   243                           	
+   244  07FC                     l566:	
+   245                           	line	16
+   246  07FC  2FF8               	goto	l565
+   247                           	
+   248  07FD                     l567:	
+   249                           	line	26
+   250                           	
+   251  07FD                     l568:	
+   252                           	global	start
+   253  07FD  120A  118A  2800   	ljmp	start
+   254                           	opt stack 0
+   255                           GLOBAL	__end_of_main
+   256  0800                     	__end_of_main:
+   257 ;; =============== function _main ends ============
+   258                           
+   259                           	signat	_main,88
+   260                           psect	maintext
+   261                           	global	btemp
+   262  007E                     	btemp set 07Eh
+   263                           
+   264                           	DABS	1,126,2	;btemp
+   265                           	global	wtemp0
+   266  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.71 build 6379 
+Symbol Table                                                                                   Sun Jul 23 14:45:44 2017
+
+                 l565 07F8                   l566 07FC                   l567 07FD                   l568 07FD  
+                l1501 07ED                  l1503 07F1                  l1505 07F4                  l1507 07F8  
+                l1493 07E1                  l1495 07E4                  l1497 07E7                  l1499 07EA  
+                _BRGH 04C2                  _SPEN 00C7                  _TXEN 04C5                  _SYNC 04C4  
+                _main 07E1                  btemp 007E                  start 0000   start_initialization 07DD  
+               ?_main 0000                 _SPBRG 0099                 _TRISC 0087                 _TXREG 0019  
+      __pcstackCOMMON 0000                 status 0003                 wtemp0 007E         __size_of_main 001F  
+              ??_main 0000            __pmaintext 07E1          __end_of_main 0800  end_of_initialization 07DD  

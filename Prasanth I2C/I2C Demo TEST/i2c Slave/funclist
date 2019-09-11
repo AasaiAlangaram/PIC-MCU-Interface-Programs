@@ -1,0 +1,10 @@
+_lcd_command: CODE, 1981 0 67
+_delay: CODE, 1755 0 18
+_i2c_sspifclr: CODE, 1727 0 11
+_lcd_data: CODE, 1848 0 66
+_lcd_display: CODE, 1810 0 38
+_main: CODE, 1914 0 67
+_port_init: CODE, 1720 0 7
+_i2c_init: CODE, 1738 0 17
+_lcd_init: CODE, 1773 0 37
+Total: 328
