@@ -2,7 +2,7 @@
 ------------------------------
 ### CourseWork
 --------------
-This repo contain all peripheral interface with pic16f877a\
+This repo contain all peripheral interface programs with pic16f877a\
 1.Led\
 2.Lcd(16*2)\
 3.Keypad\
