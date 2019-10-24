@@ -44,7 +44,7 @@ TRISX=0X8bit_hexadecimal_value;
 
 For Example:\
 -- RB2 = INPUT\
--- RB5 = OUTPUT\
+-- RB5 = OUTPUT
 
 Hence 
 `TRISB=0X04; (or) TRISB=0b00000100; (or) TRISB5=0;TRISB2=1;`
@@ -60,12 +60,12 @@ Hence
 -- If PORT bit is 0  0V.
 
 Syntax:\
-`PORTX=0b8bit_binary_value;   (or) PORTX=0X8bit_hexadecimal_value;`\
+`PORTX=0b8bit_binary_value;   (or) PORTX=0X8bit_hexadecimal_value;`
 
 For Example:\
 -- RB5 = 5V (High state)\
 -- Rest of pins in PORTB = 0V (Low state)\
-Hence\ 
+Hence
 `PORTB=0X20; (or) PORTB=0b00100000; (or) RB5=1;RB0=RB1=RB2=RB3=RB4=RB6=RB7=0;`
 
 ### Happy Coding:computer:
