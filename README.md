@@ -27,16 +27,16 @@ Link to purchase development board https://www.pantechsolutions.net/pic-developm
 -------------------------------
 -- To understand about the registers used in configuring digital I/O.\
 -- To know about the basic concept of input/output devices such as Led, Relay, Motors, Switch, Digital sensors, Matrix keypad and seven segment.\
--- To understand the programming concept for interfacing those I/O devices with pic microcontroller.\
+-- To understand the programming concept for interfacing those I/O devices with pic microcontroller.
 
-REGISTERS USED:
+***REGISTERS USED***:\
 TRIS – Directional Register
 -- It is 8 bit register. \
 -- This register states either the pin act as input () or output ().\
 -- If TRIS bit is 1  Input\
--- If TRIS bit is 0  Output\
+-- If TRIS bit is 0  Output
 
-Syntax:
+Syntax:\
 `
 TRISX=0b8bit_binary_value; (or) 
 TRISX=0X8bit_hexadecimal_value;
@@ -53,5 +53,4 @@ Hence
 | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
 | TRISB=0X04 | x | x | 0 | x | x | 1 | x | x |
 
-:rotating_light:
 ### Happy Coding:computer:
