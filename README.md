@@ -33,8 +33,8 @@ Link to purchase development board https://www.pantechsolutions.net/pic-developm
 TRIS – Directional Register
 -- It is 8 bit register. \
 -- This register states either the pin act as input () or output ().\
--- If TRIS bit is 1  Input\
--- If TRIS bit is 0  Output
+-- If TRIS bit is 1 = Input\
+-- If TRIS bit is 0 = Output
 
 Syntax:\
 `
@@ -43,8 +43,8 @@ TRISX=0X8bit_hexadecimal_value;
 `
 
 For Example:\
--- RB2  INPUT\
--- RB5  OUTPUT\
+-- RB2 = INPUT\
+-- RB5 = OUTPUT\
 
 Hence 
 `TRISB=0X04; (or) TRISB=0b00000100; (or) TRISB5=0;TRISB2=1;`
