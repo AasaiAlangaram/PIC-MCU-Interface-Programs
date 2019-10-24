@@ -30,9 +30,9 @@ Link to purchase development board https://www.pantechsolutions.net/pic-developm
 -- To understand the programming concept for interfacing those I/O devices with pic microcontroller.
 
 ***REGISTERS USED***:\
-***TRIS – Directional Register***
+***TRIS – Directional Register***\
 -- It is 8 bit register. \
--- This register states either the pin act as input () or output ().\
+-- This register states either the pin act as input (<) or output (>).\
 -- If TRIS bit is 1 = Input\
 -- If TRIS bit is 0 = Output
 
