@@ -21,7 +21,7 @@ This repo contain all peripheral interface programs with pic16f877a\
 
 The Code was written in MPLAB X IDE and it's simulated in Proteus simulation tool & tetsed in PIC Development board.\
 Link to purchase development board https://www.pantechsolutions.net/pic-development-board or else you can develop your own board.
-:+1:\
+:+1:
 
 ### INTERFACING DIGITAL IO
 -------------------------------
