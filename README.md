@@ -42,17 +42,16 @@ TRISX=0b8bit_binary_value; (or)
 TRISX=0X8bit_hexadecimal_value;
 `
 
-For Example,
+For Example:\
 -- RB2  INPUT\
 -- RB5  OUTPUT\
 
 Hence 
 `TRISB=0X04; (or) TRISB=0b00000100; (or) TRISB5=0;TRISB2=1;`
 
-| RB7 | RB6 | RB5 | RB4 | RB3 | RB2 | RB1 | RB0 |
-| -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| TRISB=0x04  | X | X | 0 | X | X | 1 | x | X |
-
+|  | RB7 | RB6 | RB5 | RB4 | RB3 | RB2 | RB1 | RB0 |
+| ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
+| TRISB=0X04 | x | x | 0 | x | x | 1 | x | x |
 
 :rotating_light:
 ### Happy Coding:computer:
