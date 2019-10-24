@@ -49,8 +49,8 @@ For Example,
 Hence 
 `TRISB=0X04; (or) TRISB=0b00000100; (or) TRISB5=0;TRISB2=1;`
 
-| | RB7 | RB6 | RB5 | RB4 | RB3 | RB2 | RB1 | RB0 |
-| - || - || - || - || - || - || - || - || - |
+| RB7 | RB6 | RB5 | RB4 | RB3 | RB2 | RB1 | RB0 |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | TRISB=0x04  | X | X | 0 | X | X | 1 | x | X |
 
 
