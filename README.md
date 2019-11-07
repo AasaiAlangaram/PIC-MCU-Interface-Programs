@@ -68,4 +68,9 @@ For Example:\
 Hence
 `PORTB=0X20; (or) PORTB=0b00100000; (or) RB5=1;RB0=RB1=RB2=RB3=RB4=RB6=RB7=0;`
 
+### LED INTREFACING
+***LED:***\
+Led is a two terminal output device. The terminals called Anode and cathode. Led emit lights or conducts only when it is under forward biased condition.
+
+
 ### Happy Coding:computer:
