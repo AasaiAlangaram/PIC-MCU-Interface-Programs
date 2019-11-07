@@ -70,6 +70,7 @@ Hence
 
 ### LED INTREFACING
 ***LED:***\
+![Symbol]()
 Led is a two terminal output device. The terminals called Anode and cathode. Led emit lights or conducts only when it is under forward biased condition.
 
 
