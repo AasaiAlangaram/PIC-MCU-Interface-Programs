@@ -4,20 +4,21 @@
 --------------
 This repo contain all peripheral interface programs with pic16f877a\
 [1.Led](https://github.com/AasaiAlangaram/PIC-MCU-Interface-Programs/tree/master/led)\
-2.Lcd(16*2)\
-3.Keypad\
-4.7-Segment Display\
-5.PWM Control\
-6.Timer 8-Bit\
-7.Timer 16-Bit\
-8.Uart\
-9.Interrupt\
-10.Eeprom\
-11.Ccp\
-12.Adc\
-13.I2c\
-14.Spi\
-15.3-Way Traffic Control Project
+[2.Lcd(16*2)](https://github.com/AasaiAlangaram/PIC-MCU-Interface-Programs/tree/master/LCD%2016X2)\
+[3.Keypad](https://github.com/AasaiAlangaram/PIC-MCU-Interface-Programs/tree/master/Keypad%20%26%20LCD)\
+[4.7-Segment Display](https://github.com/AasaiAlangaram/PIC-MCU-Interface-Programs/tree/master/7segment)\
+[5.PWM Control](https://github.com/AasaiAlangaram/PIC-MCU-Interface-Programs/tree/master/PWM)\
+[6.Timer 8-Bit](https://github.com/AasaiAlangaram/PIC-MCU-Interface-Programs/tree/master/Timer%20LED)\
+[7.Timer 16-Bit](https://github.com/AasaiAlangaram/PIC-MCU-Interface-Programs/tree/master/Timer%2016Bit%20LCD)\
+[8.Uart](https://github.com/AasaiAlangaram/PIC-MCU-Interface-Programs/tree/master/UART)\
+[9.Interrupt](https://github.com/AasaiAlangaram/PIC-MCU-Interface-Programs/tree/master/Interrupt%207seg%20%26%20LED)\
+[10.Eeprom](https://github.com/AasaiAlangaram/PIC-MCU-Interface-Programs/tree/master/EEPROM)\
+[11.Ccp](https://github.com/AasaiAlangaram/PIC-MCU-Interface-Programs/tree/master/CCP%20Lcd%20%26%20button)\
+[12.Adc](https://github.com/AasaiAlangaram/PIC-MCU-Interface-Programs/tree/master/ADC%20%26%20LCD)\
+[13.I2c](https://github.com/AasaiAlangaram/PIC-MCU-Interface-Programs/tree/master/I2C)\
+[14.Adc-8channel](https://github.com/AasaiAlangaram/PIC-MCU-Interface-Programs/tree/master/8%20channel%20ADC%20%26%20LCD)\
+[15.Spi]()\
+[15.3-Way Traffic Control Project](https://github.com/AasaiAlangaram/PIC-MCU-Interface-Programs/tree/master/Project%20-------%20Traffic%20light%20controller)
 
 The Code was written in MPLAB X IDE and it's simulated in Proteus simulation tool & tetsed in PIC Development board.\
 Link to purchase development board https://www.pantechsolutions.net/pic-development-board or else you can develop your own board.
