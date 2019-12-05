@@ -1,8 +1,11 @@
 # PIC-MCU-Interaface-Programs
 ------------------------------
-### CourseWork
+## CourseWork
 --------------
-This repo contain all peripheral interface programs with pic16f877a\
+This repo contain all peripheral interface programs with pic16f877a :boy:
+
+### Table of Contents :clipboard:
+
 [1.Led](https://github.com/AasaiAlangaram/PIC-MCU-Interface-Programs/tree/master/led)\
 [2.Lcd(16*2)](https://github.com/AasaiAlangaram/PIC-MCU-Interface-Programs/tree/master/LCD%2016X2)\
 [3.Keypad](https://github.com/AasaiAlangaram/PIC-MCU-Interface-Programs/tree/master/Keypad%20%26%20LCD)\
